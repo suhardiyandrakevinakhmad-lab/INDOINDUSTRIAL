@@ -1,0 +1,719 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Electric Motors | Indo Industrial</title>
+
+<style>
+:root {
+    --navy: #0b1d35;
+    --gold: #d5a63a;
+    --light: #f4f6f8;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--light);
+    color: #253247;
+    line-height: 1.6;
+}
+
+header {
+    background: var(--navy);
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 3px 12px #0002;
+}
+
+.navbar {
+    max-width: 1200px;
+    margin: auto;
+    padding: 13px 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: white;
+    text-decoration: none;
+}
+
+.brand img {
+    width: 72px;
+    height: 72px;
+    object-fit: contain;
+    background: transparent;
+    border-radius: 0;
+    flex-shrink: 0;
+}
+
+.brand strong {
+    display: block;
+    letter-spacing: 1px;
+    font-size: 18px;
+}
+
+.brand small {
+    display: block;
+    font-size: 10px;
+    letter-spacing: 1px;
+    color: #e6c66f;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+nav a:hover,
+nav a.active {
+    color: var(--gold);
+}
+
+.cart-link span {
+    background: var(--gold);
+    color: var(--navy);
+    padding: 2px 7px;
+    border-radius: 20px;
+    margin-left: 4px;
+}
+
+.hero {
+    min-height: 270px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(5, 17, 33, 0.65),
+            rgba(5, 17, 33, 0.35)
+        ),
+        url("images/foto pabrik 8.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    align-items: center;
+}
+
+.hero-inner {
+    max-width: 1200px;
+    width: 100%;
+    margin: auto;
+    padding: 45px 22px;
+    color: white;
+}
+
+.eyebrow {
+    color: var(--gold);
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.hero h1 {
+    font-size: clamp(32px, 5vw, 48px);
+    margin: 8px 0;
+}
+
+.hero p {
+    max-width: 650px;
+    color: #e5eaf1;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 35px auto 60px;
+    padding: 0 22px;
+}
+
+.section-head {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 22px;
+}
+
+.section-head h2 {
+    font-size: 27px;
+    color: var(--navy);
+}
+
+.section-head p {
+    color: #667085;
+    font-size: 14px;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.product-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #e6e9ee;
+    box-shadow: 0 5px 18px #0b1d350d;
+    display: flex;
+    flex-direction: column;
+    transition: transform .2s, box-shadow .2s;
+}
+
+.product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 26px #0b1d3518;
+}
+
+.product-image {
+    height: 220px;
+    background: white;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #edf0f3;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.product-info {
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.category-tag {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #92701d;
+    font-weight: bold;
+}
+
+.product-info h3 {
+    font-size: 17px;
+    line-height: 1.4;
+    color: var(--navy);
+    margin: 7px 0;
+}
+
+.description {
+    font-size: 13px;
+    color: #697586;
+    min-height: 42px;
+}
+
+.price {
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--navy);
+    margin: 13px 0 4px;
+}
+
+.price-note {
+    font-size: 10px;
+    color: #8992a0;
+    margin-bottom: 13px;
+}
+
+.quantity-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: auto;
+    margin-bottom: 13px;
+}
+
+.quantity-row > span {
+    font-size: 12px;
+    color: #667085;
+    margin-right: auto;
+}
+
+.qty-control {
+    display: flex;
+    align-items: center;
+    border: 1px solid #dce1e8;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.qty-control button {
+    width: 31px;
+    height: 31px;
+    border: 0;
+    background: #f2f4f7;
+    font-size: 18px;
+    cursor: pointer;
+    color: var(--navy);
+}
+
+.qty-control input {
+    width: 36px;
+    text-align: center;
+    border: 0;
+    outline: 0;
+    font-weight: bold;
+    color: var(--navy);
+}
+
+.add-btn {
+    display: block;
+    width: 100%;
+    margin-top: 15px;
+    padding: 13px 16px;
+
+    border: 1px solid var(--gold);
+    border-radius: 4px;
+
+    background: var(--gold);
+    color: var(--navy);
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1.2px;
+    text-align: center;
+
+    cursor: pointer;
+    transition: none;
+}
+
+.add-btn:hover,
+.add-btn:focus,
+.add-btn:focus-visible {
+    background: #e5b94d;
+    color: var(--navy);
+    border-color: #e5b94d;
+    outline: none;
+}
+
+.add-btn:active {
+    background: var(--gold);
+    color: var(--navy);
+    border-color: var(--gold);
+    transform: none;
+    box-shadow: none;
+}
+
+footer {
+    background: var(--navy);
+    color: #dbe2ec;
+    padding: 28px 22px;
+    text-align: center;
+    font-size: 12px;
+}
+
+footer strong {
+    color: var(--gold);
+}
+
+.notification {
+    position: fixed;
+    right: 22px;
+    bottom: 22px;
+    z-index: 30;
+    width: min(360px, calc(100% - 32px));
+    background: white;
+    border-left: 5px solid var(--gold);
+    box-shadow: 0 10px 35px #0003;
+    border-radius: 9px;
+    padding: 16px 18px;
+    transform: translateY(150%);
+    opacity: 0;
+    transition: all .35s;
+}
+
+.notification.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.notification strong {
+    display: block;
+    color: var(--navy);
+    margin-bottom: 3px;
+}
+
+.notification p {
+    font-size: 13px;
+    color: #667085;
+}
+
+.notification a {
+    display: inline-block;
+    margin-top: 8px;
+    color: #876415;
+    font-weight: bold;
+    font-size: 13px;
+    text-decoration: none;
+}
+
+@media (max-width: 900px) {
+    .product-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .navbar {
+        align-items: flex-start;
+    }
+
+    nav {
+        gap: 13px;
+    }
+}
+
+@media (max-width: 580px) {
+    .navbar {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    nav {
+        gap: 14px;
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .product-image {
+        height: 230px;
+    }
+
+    .section-head {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="navbar">
+        <a class="brand" href="index.html">
+            <img src="images/logo_baru-removebg-preview.png"
+     alt="Indo Industrial Logo">
+            <span>
+                <strong>INDO INDUSTRIAL</strong>
+                <small>INDUSTRIAL EQUIPMENT &amp; ENGINEERING</small>
+            </span>
+        </a>
+
+        <nav>
+            <a href="index.html">HOME</a>
+            <a href="products.html" class="active">PRODUCTS</a>
+            <a href="cart.html" class="cart-link">
+                CART <span id="cart-count">0</span>
+            </a>
+        </nav>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="hero-inner">
+        <div class="eyebrow">Industrial Power Solutions</div>
+        <h1>Electric Motors</h1>
+        <p>
+            Reliable electric motor solutions for industrial machinery,
+            automation systems, and manufacturing applications.
+        </p>
+    </div>
+</section>
+
+<main class="container">
+    <div class="section-head">
+        <div>
+            <h2>Our Electric Motors</h2>
+            <p>Explore our industrial motor selection.</p>
+        </div>
+        <p>13 products</p>
+    </div>
+
+    <div class="product-grid" id="product-grid"></div>
+</main>
+
+<footer>
+    <strong>INDO INDUSTRIAL</strong>
+    <br>
+    Industrial Equipment &amp; Engineering
+    <br>
+    <span>School project demonstration website · Est. 2026</span>
+</footer>
+
+<div class="notification" id="notification"
+     role="status" aria-live="polite">
+    <strong>✓ Added to Cart!</strong>
+    <p id="notification-text">Product added to your shopping cart.</p>
+    <a href="cart.html">View Cart →</a>
+</div>
+
+<script>
+const products = [
+    {
+        name: "High-Speed Precision Industrial Motor",
+        price: 4500000,
+        image: "High-Speed Precision Industrial Motor.jpg",
+        description: "Precision motor for selected industrial machinery."
+    },
+    {
+        name: "Low Voltage Synchronous Motor",
+        price: 6500000,
+        image: "Low Voltage Synchronous Motor.jpg",
+        description: "Synchronous motor for low-voltage applications."
+    },
+    {
+        name: "Hybrid Stepper Motor",
+        price: 850000,
+        image: "Hybrid-Stepper-Motor.jpg",
+        description: "Stepper motor for positioning and motion control."
+    },
+    {
+        name: "Brushless Servo Motor",
+        price: 3200000,
+        image: "Brushless Servo Motor.jpg",
+        description: "Servo motor for precision industrial automation."
+    },
+    {
+        name: "High-Performance BLDC Motor",
+        price: 1750000,
+        image: "high-performance-bldc-motor-1.jpg",
+        description: "Brushless DC motor for efficient motor applications."
+    },
+    {
+        name: "Three-Phase Induction Motor",
+        price: 2800000,
+        image: "Standard-Three-Phase-Induction-Motor-1.jpg",
+        description: "Three-phase induction motor for industrial machinery."
+    },
+    {
+        name: "Explosion-Proof Motor",
+        price: 12500000,
+        image: "Explosion-Proof-Motor-1.jpg",
+        description: "Motor designed for specified hazardous environments."
+    },
+    {
+        name: "VFD Motor",
+        price: 3900000,
+        image: "VFD-Motor-1.jpg",
+        description: "Motor for applications using variable-frequency drives."
+    },
+    {
+        name: "Industrial Motor Model 9",
+        price: 2500000,
+        image: "e028bb4f-bc91-450f-b2b6-5831ed1ebcbe.webp",
+        description: "Industrial motor. Model specifications to be confirmed."
+    },
+    {
+        name: "Industrial Motor Model 10",
+        price: 3000000,
+        image: "b94b56ec-833b-4af4-87c9-8172727d6e90.webp",
+        description: "Industrial motor. Model specifications to be confirmed."
+    },
+    {
+        name: "Industrial Motor Model 11",
+        price: 3500000,
+        image: "b9bd3d01-66b5-417f-8e45-4af251fa1530.webp",
+        description: "Industrial motor. Model specifications to be confirmed."
+    },
+    {
+        name: "Industrial Motor Model 12",
+        price: 4000000,
+        image: "a9a4ca73-616c-439e-90f0-83ef405369c9.webp",
+        description: "Industrial motor for machinery applications."
+    },
+    {
+        name: "Industrial Motor Model 13",
+        price: 4500000,
+        image: "cb956071-8f73-4671-9a40-6da2ac5b29eb.webp",
+        description: "Industrial motor for industrial equipment."
+    }
+];
+
+const quantities = {};
+const grid = document.getElementById("product-grid");
+
+function rupiah(value) {
+    return new Intl.NumberFormat("id-ID", {
+        style: "currency",
+        currency: "IDR",
+        maximumFractionDigits: 0
+    }).format(value);
+}
+
+function displayProducts() {
+    grid.innerHTML = products.map((product, index) => {
+        quantities[index] = 1;
+
+        return `
+        <article class="product-card">
+            <div class="product-image">
+                <img
+                    src="images/${product.image}"
+                    alt="${product.name}"
+                    loading="lazy"
+                    onerror="this.onerror=null;this.src='images/equipment.jpg';this.style.objectFit='cover'">
+            </div>
+
+            <div class="product-info">
+                <span class="category-tag">Electric Motors</span>
+                <h3>${product.name}</h3>
+                <p class="description">${product.description}</p>
+
+                <div class="price">${rupiah(product.price)}</div>
+                <div class="price-note">
+                    Estimated price for school project
+                </div>
+
+                <div class="quantity-row">
+                    <span>Quantity</span>
+                    <div class="qty-control">
+                        <button type="button"
+                            aria-label="Decrease quantity"
+                            onclick="changeQuantity(${index}, -1)">−</button>
+
+                        <input id="qty-${index}"
+                            value="1"
+                            readonly
+                            aria-label="Quantity">
+
+                        <button type="button"
+                            aria-label="Increase quantity"
+                            onclick="changeQuantity(${index}, 1)">+</button>
+                    </div>
+                </div>
+
+                <button class="add-btn"
+                    type="button"
+                    onclick="addToCart(${index})">
+                    ADD TO CART
+                </button>
+            </div>
+        </article>`;
+    }).join("");
+}
+
+function changeQuantity(index, change) {
+    quantities[index] = Math.max(
+        1,
+        (quantities[index] || 1) + change
+    );
+
+    document.getElementById(`qty-${index}`).value =
+        quantities[index];
+}
+
+function getCart() {
+    try {
+        return JSON.parse(
+            localStorage.getItem("indoIndustrialCart")
+        ) || [];
+    } catch (error) {
+        return [];
+    }
+}
+
+function saveCart(cart) {
+    localStorage.setItem(
+        "indoIndustrialCart",
+        JSON.stringify(cart)
+    );
+}
+
+function updateCartCount() {
+    const cart = getCart();
+
+    document.getElementById("cart-count").textContent =
+        cart.reduce(
+            (sum, item) => sum + (Number(item.quantity) || 0),
+            0
+        );
+}
+
+let notificationTimer;
+
+function showNotification(message) {
+    document.getElementById("notification-text").textContent =
+        message;
+
+    const box = document.getElementById("notification");
+    box.classList.add("show");
+
+    clearTimeout(notificationTimer);
+
+    notificationTimer = setTimeout(() => {
+        box.classList.remove("show");
+    }, 3200);
+}
+
+function addToCart(index) {
+    const product = products[index];
+    const cart = getCart();
+
+    const existing = cart.find(
+        item => item.name === product.name
+    );
+
+    if (existing) {
+        existing.quantity =
+            (Number(existing.quantity) || 0) + quantities[index];
+    } else {
+        cart.push({
+            name: product.name,
+            price: product.price,
+            image: "images/" + product.image,
+            category: "Electric Motors",
+            quantity: quantities[index]
+        });
+    }
+
+    saveCart(cart);
+    updateCartCount();
+
+    showNotification(
+        `${product.name} (${quantities[index]} item) added to your cart.`
+    );
+}
+
+displayProducts();
+updateCartCount();
+</script>
+
+</body>
+</html>

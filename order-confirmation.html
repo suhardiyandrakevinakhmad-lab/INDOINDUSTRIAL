@@ -1,0 +1,1284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Order Confirmed | Indo Industrial</title>
+
+<style>
+
+/* ================= RESET ================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* ================= VARIABLES ================= */
+
+:root {
+    --navy: #0b1d35;
+    --navy2: #123b68;
+    --gold: #d5a63a;
+    --gold-light: #e8c56a;
+    --muted: #697586;
+    --border: #dfe4ea;
+    --background: #f4f6f8;
+    --success: #27833a;
+}
+
+
+/* ================= BODY ================= */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--background);
+    color: #182536;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* ================= NAVBAR ================= */
+
+.navbar {
+    background: var(--navy);
+    color: white;
+}
+
+.nav-container {
+    width: 90%;
+    max-width: 1200px;
+    min-height: 78px;
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo img {
+width: 72px;
+height: 72px;
+object-fit: contain;
+background: transparent;
+border-radius: 0;
+}
+
+.logo-text strong {
+    display: block;
+
+    font-size: 18px;
+
+    letter-spacing: 2px;
+}
+
+.logo-text span {
+    display: block;
+
+    font-size: 9px;
+
+    color: #cbd5e1;
+
+    letter-spacing: 1px;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    color: white;
+
+    font-size: 12px;
+
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: var(--gold);
+}
+
+
+/* ================= HERO ================= */
+
+.hero {
+    background:
+        linear-gradient(
+            rgba(7,22,40,0.93),
+            rgba(7,22,40,0.93)
+        ),
+        url("images/foto pabrik 2.jpg");
+
+    background-size: cover;
+    background-position: center;
+
+    padding: 60px 20px;
+
+    text-align: center;
+
+    color: white;
+}
+
+.hero small {
+    color: var(--gold);
+
+    letter-spacing: 3px;
+
+    font-weight: bold;
+}
+
+.hero h1 {
+    font-size: 42px;
+
+    margin-top: 12px;
+}
+
+
+/* ================= CONTAINER ================= */
+
+.container {
+    width: 90%;
+
+    max-width: 950px;
+
+    margin: auto;
+
+    padding: 55px 0;
+}
+
+
+/* ================= SUCCESS BOX ================= */
+
+.success-box {
+    background: white;
+
+    border: 1px solid var(--border);
+
+    padding: 45px;
+
+    box-shadow: 0 8px 30px rgba(0,0,0,0.04);
+}
+
+
+/* ================= SUCCESS ICON ================= */
+
+.check {
+    width: 75px;
+    height: 75px;
+
+    margin: 0 auto 22px;
+
+    border-radius: 50%;
+
+    background: #e8f4ea;
+
+    color: var(--success);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 38px;
+
+    font-weight: bold;
+}
+
+
+/* ================= TITLE ================= */
+
+.success-box h2 {
+    text-align: center;
+
+    font-size: 28px;
+
+    margin-bottom: 12px;
+}
+
+.success-message {
+    text-align: center;
+
+    color: var(--muted);
+
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+
+/* ================= ORDER NUMBER ================= */
+
+.order-number {
+    margin: 30px auto;
+
+    background: #f7f8fa;
+
+    border: 1px solid var(--border);
+
+    padding: 20px;
+
+    max-width: 450px;
+
+    text-align: center;
+}
+
+.order-number span {
+    display: block;
+
+    color: var(--muted);
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 8px;
+}
+
+.order-number strong {
+    font-size: 21px;
+
+    color: var(--navy);
+
+    letter-spacing: 1px;
+}
+
+
+/* ================= SECTION ================= */
+
+.section {
+    margin-top: 35px;
+
+    border-top: 1px solid var(--border);
+
+    padding-top: 28px;
+}
+
+.section h3 {
+    font-size: 18px;
+
+    margin-bottom: 18px;
+}
+
+
+/* ================= CUSTOMER GRID ================= */
+
+.customer-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 15px;
+}
+
+.customer-item {
+    background: #f8f9fb;
+
+    border: 1px solid #edf0f3;
+
+    padding: 15px;
+}
+
+.customer-item.full {
+    grid-column: 1 / -1;
+}
+
+.customer-item span {
+    display: block;
+
+    color: var(--muted);
+
+    font-size: 10px;
+
+    margin-bottom: 7px;
+
+    text-transform: uppercase;
+
+    letter-spacing: .7px;
+}
+
+.customer-item strong {
+    display: block;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+}
+
+
+/* ================= PRODUCT ================= */
+
+.product-item {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 15px 0;
+
+    border-bottom: 1px solid #edf0f3;
+}
+
+.product-item:last-child {
+    border-bottom: none;
+}
+
+.product-item img {
+    width: 75px;
+    height: 65px;
+
+    object-fit: contain;
+
+    background: #fafafa;
+
+    border: 1px solid #f0f0f0;
+}
+
+.product-info {
+    flex: 1;
+}
+
+.product-info strong {
+    display: block;
+
+    font-size: 13px;
+
+    line-height: 1.4;
+
+    margin-bottom: 6px;
+}
+
+.product-info span {
+    color: var(--muted);
+
+    font-size: 11px;
+}
+
+.product-price {
+    font-size: 13px;
+
+    font-weight: bold;
+
+    white-space: nowrap;
+}
+
+
+/* ================= SUMMARY ================= */
+
+.summary {
+    margin-top: 20px;
+
+    border-top: 1px solid var(--border);
+
+    padding-top: 15px;
+}
+
+.summary-row {
+    display: flex;
+
+    justify-content: space-between;
+
+    padding: 9px 0;
+
+    font-size: 13px;
+}
+
+.summary-row span:last-child {
+    font-weight: bold;
+}
+
+.summary-row.total {
+    border-top: 1px solid var(--border);
+
+    margin-top: 10px;
+
+    padding-top: 18px;
+
+    font-size: 21px;
+
+    font-weight: bold;
+}
+
+.summary-row.total span:last-child {
+    color: var(--navy2);
+}
+
+
+/* ================= STATUS ================= */
+
+.status-box {
+    background: #f7fbf8;
+
+    border: 1px solid #dcefe0;
+
+    padding: 18px;
+
+    margin-top: 25px;
+
+    text-align: center;
+}
+
+.status-box strong {
+    display: block;
+
+    color: var(--success);
+
+    font-size: 14px;
+
+    margin-bottom: 6px;
+}
+
+.status-box span {
+    color: var(--muted);
+
+    font-size: 11px;
+}
+
+
+/* ================= BUTTONS ================= */
+
+.buttons {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    margin-top: 35px;
+}
+
+.btn {
+    padding: 14px 25px;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    letter-spacing: .5px;
+
+    transition: .2s;
+}
+
+.primary {
+    background: var(--gold);
+
+    color: var(--navy);
+}
+
+.primary:hover {
+    background: var(--gold-light);
+
+    transform: translateY(-1px);
+}
+
+.secondary {
+    border: 1px solid var(--navy);
+
+    color: var(--navy);
+
+    background: white;
+}
+
+.secondary:hover {
+    background: var(--navy);
+
+    color: white;
+}
+
+
+/* ================= NO ORDER ================= */
+
+.no-order {
+    text-align: center;
+
+    padding: 70px 20px;
+}
+
+.no-order h2 {
+    margin-bottom: 10px;
+}
+
+.no-order p {
+    color: var(--muted);
+
+    margin-bottom: 25px;
+}
+
+.no-order a {
+    display: inline-block;
+
+    background: var(--gold);
+
+    color: var(--navy);
+
+    padding: 13px 25px;
+
+    font-size: 12px;
+
+    font-weight: bold;
+}
+
+
+/* ================= FOOTER ================= */
+
+footer {
+    background: var(--navy);
+
+    color: white;
+
+    text-align: center;
+
+    padding: 45px 20px;
+
+    margin-top: 30px;
+}
+
+footer h3 {
+    letter-spacing: 2px;
+}
+
+footer p {
+    color: #aeb9c8;
+
+    font-size: 12px;
+
+    margin-top: 7px;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 700px) {
+
+    .nav-container {
+        flex-direction: column;
+
+        padding: 15px 0;
+
+        gap: 15px;
+    }
+
+    .success-box {
+        padding: 30px 20px;
+    }
+
+    .customer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .customer-item.full {
+        grid-column: auto;
+    }
+
+    .product-item {
+        align-items: flex-start;
+    }
+
+    .product-price {
+        font-size: 11px;
+    }
+
+    .buttons {
+        flex-direction: column;
+    }
+
+    .btn {
+        text-align: center;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="navbar">
+
+    <div class="nav-container">
+
+        <a href="index.html" class="logo">
+
+            <img
+                src="images/logo_baru-removebg-preview.png"
+                alt="Indo Industrial"
+            >
+
+            <div class="logo-text">
+
+                <strong>
+                    INDO INDUSTRIAL
+                </strong>
+
+                <span>
+                    INDUSTRIAL EQUIPMENT & ENGINEERING
+                </span>
+
+            </div>
+
+        </a>
+
+
+        <nav>
+
+            <a href="index.html">
+                HOME
+            </a>
+
+            <a href="products.html">
+                PRODUCTS
+            </a>
+
+            <a href="cart.html">
+                🛒 CART
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+    <small>
+        INDO INDUSTRIAL
+    </small>
+
+    <h1>
+        Order Confirmation
+    </h1>
+
+</section>
+
+
+<!-- ================= CONTENT ================= -->
+
+<main class="container">
+
+    <div
+        class="success-box"
+        id="confirmation"
+    >
+
+        <!-- SUCCESS ICON -->
+
+        <div class="check">
+            ✓
+        </div>
+
+
+        <h2>
+            Thank You For Your Order!
+        </h2>
+
+
+        <p class="success-message">
+            Your order has been successfully
+            received by Indo Industrial.
+            Please keep your order number
+            for future reference.
+        </p>
+
+
+        <!-- ORDER NUMBER -->
+
+        <div class="order-number">
+
+            <span>
+                ORDER NUMBER
+            </span>
+
+            <strong id="order-number">
+                -
+            </strong>
+
+        </div>
+
+
+        <!-- CUSTOMER INFORMATION -->
+
+        <div class="section">
+
+            <h3>
+                Customer Information
+            </h3>
+
+
+            <div class="customer-grid">
+
+
+                <div class="customer-item">
+
+                    <span>
+                        Full Name
+                    </span>
+
+                    <strong id="customer-name">
+                        -
+                    </strong>
+
+                </div>
+
+
+                <div class="customer-item">
+
+                    <span>
+                        Phone Number
+                    </span>
+
+                    <strong id="customer-phone">
+                        -
+                    </strong>
+
+                </div>
+
+
+                <div class="customer-item">
+
+                    <span>
+                        Email
+                    </span>
+
+                    <strong id="customer-email">
+                        -
+                    </strong>
+
+                </div>
+
+
+                <div class="customer-item">
+
+                    <span>
+                        Postal Code
+                    </span>
+
+                    <strong id="customer-postal">
+                        -
+                    </strong>
+
+                </div>
+
+
+                <div class="customer-item full">
+
+                    <span>
+                        Address
+                    </span>
+
+                    <strong id="customer-address">
+                        -
+                    </strong>
+
+                </div>
+
+
+                <div class="customer-item">
+
+                    <span>
+                        City / Regency
+                    </span>
+
+                    <strong id="customer-city">
+                        -
+                    </strong>
+
+                </div>
+
+
+                <div class="customer-item">
+
+                    <span>
+                        Province
+                    </span>
+
+                    <strong id="customer-province">
+                        -
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- SHIPPING & PAYMENT -->
+
+        <div class="section">
+
+            <h3>
+                Delivery & Payment
+            </h3>
+
+
+            <div class="customer-grid">
+
+
+                <div class="customer-item">
+
+                    <span>
+                        Shipping Method
+                    </span>
+
+                    <strong id="shipping-method">
+                        -
+                    </strong>
+
+                </div>
+
+
+                <div class="customer-item">
+
+                    <span>
+                        Payment Method
+                    </span>
+
+                    <strong id="payment-method">
+                        -
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- PRODUCTS -->
+
+        <div class="section">
+
+            <h3>
+                Products Ordered
+            </h3>
+
+
+            <div id="products-list"></div>
+
+
+            <!-- SUMMARY -->
+
+            <div class="summary">
+
+
+                <div class="summary-row">
+
+                    <span>
+                        Subtotal
+                    </span>
+
+                    <span id="subtotal">
+                        Rp 0
+                    </span>
+
+                </div>
+
+
+                <div class="summary-row">
+
+                    <span>
+                        Shipping
+                    </span>
+
+                    <span id="shipping-cost">
+                        Rp 0
+                    </span>
+
+                </div>
+
+
+                <div class="summary-row">
+
+                    <span>
+                        PPN (11%)
+                    </span>
+
+                    <span id="tax">
+                        Rp 0
+                    </span>
+
+                </div>
+
+
+                <div class="summary-row total">
+
+                    <span>
+                        Grand Total
+                    </span>
+
+                    <span id="total">
+                        Rp 0
+                    </span>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+        <!-- STATUS -->
+
+        <div class="status-box">
+
+            <strong>
+                ✓ Order Received
+            </strong>
+
+            <span>
+                Your order has been successfully recorded.
+            </span>
+
+        </div>
+
+
+        <!-- BUTTONS -->
+
+        <div class="buttons">
+
+            <a
+                href="products.html"
+                class="btn primary"
+            >
+                CONTINUE SHOPPING
+            </a>
+
+
+            <a
+                href="index.html"
+                class="btn secondary"
+            >
+                BACK TO HOME
+            </a>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <h3>
+        INDO INDUSTRIAL
+    </h3>
+
+    <p>
+        Industrial Equipment & Engineering Service
+    </p>
+
+    <p>
+        © 2026 Indo Industrial. All Rights Reserved.
+    </p>
+
+</footer>
+
+
+<script>
+
+/* =====================================================
+   LOAD ORDER
+===================================================== */
+
+const order =
+    JSON.parse(
+        localStorage.getItem(
+            "indoIndustrialOrder"
+        )
+    );
+
+
+/* =====================================================
+   FORMAT RUPIAH
+===================================================== */
+
+function formatRupiah(number) {
+
+    return new Intl.NumberFormat(
+        "id-ID",
+        {
+            style: "currency",
+            currency: "IDR",
+            maximumFractionDigits: 0
+        }
+    ).format(Number(number) || 0);
+
+}
+
+
+/* =====================================================
+   DISPLAY ORDER
+===================================================== */
+
+function displayOrder() {
+
+    const confirmation =
+        document.getElementById(
+            "confirmation"
+        );
+
+
+    if (!order) {
+
+        confirmation.innerHTML = `
+
+            <div class="no-order">
+
+                <h2>
+                    No Order Found
+                </h2>
+
+                <p>
+                    We couldn't find a recent order.
+                </p>
+
+                <a href="products.html">
+                    BROWSE PRODUCTS
+                </a>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    /* ================= ORDER NUMBER ================= */
+
+    document.getElementById(
+        "order-number"
+    ).textContent =
+        order.orderNumber || "-";
+
+
+    /* ================= CUSTOMER ================= */
+
+    const customer =
+        order.customer || {};
+
+
+    document.getElementById(
+        "customer-name"
+    ).textContent =
+        customer.name || "-";
+
+
+    document.getElementById(
+        "customer-phone"
+    ).textContent =
+        customer.phone || "-";
+
+
+    document.getElementById(
+        "customer-email"
+    ).textContent =
+        customer.email || "-";
+
+
+    document.getElementById(
+        "customer-postal"
+    ).textContent =
+        customer.postal || "-";
+
+
+    document.getElementById(
+        "customer-address"
+    ).textContent =
+        customer.address || "-";
+
+
+    document.getElementById(
+        "customer-city"
+    ).textContent =
+        customer.city || "-";
+
+
+    document.getElementById(
+        "customer-province"
+    ).textContent =
+        customer.province || "-";
+
+
+    /* ================= SHIPPING ================= */
+
+    if (order.shipping) {
+
+        document.getElementById(
+            "shipping-method"
+        ).textContent =
+            order.shipping.name || "-";
+
+
+        document.getElementById(
+            "shipping-cost"
+        ).textContent =
+            formatRupiah(
+                order.shipping.cost
+            );
+
+    }
+
+
+    /* ================= PAYMENT ================= */
+
+    document.getElementById(
+        "payment-method"
+    ).textContent =
+        order.payment || "-";
+
+
+    /* ================= PRODUCTS ================= */
+
+    const productsList =
+        document.getElementById(
+            "products-list"
+        );
+
+
+    productsList.innerHTML = "";
+
+
+    if (
+        !order.products ||
+        order.products.length === 0
+    ) {
+
+        productsList.innerHTML = `
+
+            <p style="
+                color:#697586;
+                font-size:13px;
+            ">
+                No products found.
+            </p>
+
+        `;
+
+    } else {
+
+        order.products.forEach(
+            function(item) {
+
+                const quantity =
+                    Number(item.quantity) || 0;
+
+
+                const price =
+                    Number(item.price) || 0;
+
+
+                const itemTotal =
+                    price * quantity;
+
+
+                productsList.innerHTML += `
+
+                    <div class="product-item">
+
+                        <img
+                            src="${item.image}"
+                            alt="${item.name}"
+                        >
+
+
+                        <div class="product-info">
+
+                            <strong>
+                                ${item.name}
+                            </strong>
+
+                            <span>
+                                ${formatRupiah(price)}
+                                × ${quantity}
+                            </span>
+
+                        </div>
+
+
+                        <div class="product-price">
+
+                            ${formatRupiah(itemTotal)}
+
+                        </div>
+
+                    </div>
+
+                `;
+
+            }
+        );
+
+    }
+
+
+    /* ================= SUMMARY ================= */
+
+    document.getElementById(
+        "subtotal"
+    ).textContent =
+        formatRupiah(
+            order.subtotal
+        );
+
+
+    document.getElementById(
+        "tax"
+    ).textContent =
+        formatRupiah(
+            order.tax
+        );
+
+
+    document.getElementById(
+        "total"
+    ).textContent =
+        formatRupiah(
+            order.total
+        );
+
+}
+
+
+/* =====================================================
+   START
+===================================================== */
+
+displayOrder();
+
+</script>
+
+</body>
+
+</html>

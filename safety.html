@@ -1,0 +1,722 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Safety Equipment | Indo Industrial</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f4f6f8;
+            color: #182536;
+        }
+
+        :root {
+            --navy: #0b1d35;
+            --gold: #d5a63a;
+            --muted: #697586;
+            --border: #dfe4ea;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* ================= NAVBAR ================= */
+
+        .navbar {
+            background: var(--navy);
+            color: white;
+        }
+
+        .nav-container {
+            width: 90%;
+            max-width: 1200px;
+            min-height: 78px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo img {
+    width: 72px;
+    height: 72px;
+    object-fit: contain;
+    background: transparent;
+    border-radius: 0;
+    flex-shrink: 0;
+        }
+
+        .logo-text strong {
+            display: block;
+            font-size: 18px;
+            letter-spacing: 2px;
+        }
+
+        .logo-text span {
+            display: block;
+            font-size: 9px;
+            color: #cbd5e1;
+            letter-spacing: 1px;
+        }
+
+        nav {
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: var(--gold);
+        }
+
+        .cart-link {
+            color: var(--gold) !important;
+        }
+
+        /* ================= HERO ================= */
+
+       .hero {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(5, 17, 33, 0.65),
+            rgba(5, 17, 33, 0.35)
+        ),
+        url("images/foto pabrik 16.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    min-height: 270px;
+    padding: 70px 20px;
+    text-align: center;
+    color: white;
+        }
+
+        .hero small {
+            color: var(--gold);
+            letter-spacing: 3px;
+            font-weight: bold;
+        }
+
+        .hero h1 {
+            font-size: 45px;
+            margin-top: 12px;
+        }
+
+        .hero p {
+            margin-top: 12px;
+            color: #d4dce5;
+            font-size: 14px;
+        }
+
+        /* ================= CONTAINER ================= */
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            padding: 60px 0;
+        }
+
+        .page-top {
+            margin-bottom: 30px;
+        }
+
+        .page-top h2 {
+            font-size: 25px;
+        }
+
+        .page-top p {
+            color: var(--muted);
+            font-size: 13px;
+            margin-top: 6px;
+        }
+
+        /* ================= PRODUCTS ================= */
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .product-card {
+            background: white;
+            border: 1px solid var(--border);
+            transition: 0.2s;
+            overflow: hidden;
+        }
+
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .product-image {
+            height: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            padding: 20px;
+        }
+
+        .product-image img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        /* ================= INFO ================= */
+
+        .product-info {
+            padding: 22px;
+        }
+
+        .category {
+            color: var(--gold);
+            font-size: 10px;
+            font-weight: bold;
+            letter-spacing: 1.5px;
+        }
+
+        .product-info h3 {
+            font-size: 16px;
+            line-height: 1.4;
+            margin-top: 8px;
+            min-height: 45px;
+        }
+
+        .description {
+            color: var(--muted);
+            font-size: 11px;
+            line-height: 1.5;
+            margin-top: 8px;
+            min-height: 34px;
+        }
+
+        .price {
+            margin-top: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #123b68;
+        }
+
+        /* ================= QUANTITY ================= */
+
+        .quantity-box {
+            display: flex;
+            align-items: center;
+            margin-top: 18px;
+        }
+
+        .quantity-box button {
+            width: 34px;
+            height: 34px;
+            border: 1px solid #ccd3dc;
+            background: white;
+            cursor: pointer;
+            font-size: 17px;
+        }
+
+        .quantity-box span {
+            width: 42px;
+            height: 34px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-top: 1px solid #ccd3dc;
+            border-bottom: 1px solid #ccd3dc;
+            font-size: 13px;
+        }
+
+        /* ================= BUTTON ================= */
+
+        .add-cart {
+    display: block;
+    width: 100%;
+    margin-top: 15px;
+    padding: 13px 16px;
+
+    border: 1px solid var(--gold);
+    border-radius: 4px;
+
+    background: var(--gold);
+    color: var(--navy);
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1.2px;
+    text-align: center;
+
+    cursor: pointer;
+    transition: none;
+}
+
+.add-cart:hover,
+.add-cart:focus,
+.add-cart:focus-visible {
+    background: #e5b94d;
+    color: var(--navy);
+    border-color: #e5b94d;
+    outline: none;
+}
+
+.add-cart:active {
+    background: var(--gold);
+    color: var(--navy);
+    border-color: var(--gold);
+    transform: none;
+    box-shadow: none;
+}
+
+        /* ================= NOTIFICATION ================= */
+
+        .notification {
+            position: fixed;
+            right: 25px;
+            bottom: 25px;
+            width: 320px;
+            max-width: calc(100% - 40px);
+            background: white;
+            border-left: 5px solid var(--gold);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            padding: 18px 20px;
+            transform: translateX(400px);
+            transition: 0.35s;
+            z-index: 9999;
+        }
+
+        .notification.show {
+            transform: translateX(0);
+        }
+
+        .notification strong {
+            display: block;
+            font-size: 13px;
+            margin-bottom: 5px;
+        }
+
+        .notification p {
+            color: var(--muted);
+            font-size: 11px;
+        }
+
+        .notification a {
+            display: inline-block;
+            margin-top: 10px;
+            color: #123b68;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            background: var(--navy);
+            color: white;
+            text-align: center;
+            padding: 45px 20px;
+            margin-top: 40px;
+        }
+
+        footer h3 {
+            letter-spacing: 2px;
+        }
+
+        footer p {
+            color: #aeb9c8;
+            font-size: 12px;
+            margin-top: 7px;
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 900px) {
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-container {
+                flex-direction: column;
+                padding: 15px 0;
+                gap: 15px;
+            }
+
+            nav {
+                gap: 18px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 35px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <header class="navbar">
+        <div class="nav-container">
+
+            <a href="index.html" class="logo">
+                <img src="images/logo_baru-removebg-preview.png" alt="Indo Industrial">
+
+                <div class="logo-text">
+                    <strong>INDO INDUSTRIAL</strong>
+                    <span>INDUSTRIAL EQUIPMENT &amp; ENGINEERING</span>
+                </div>
+            </a>
+
+            <nav>
+                <a href="index.html">HOME</a>
+                <a href="products.html">PRODUCTS</a>
+                <a href="cart.html" class="cart-link">
+                    🛒 CART <span id="cart-count">0</span>
+                </a>
+            </nav>
+
+        </div>
+    </header>
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+        <small>INDO INDUSTRIAL</small>
+        <h1>Safety Equipment</h1>
+        <p>
+            Professional personal protective equipment
+            for safer industrial and workshop operations.
+        </p>
+    </section>
+
+    <!-- ================= PRODUCTS ================= -->
+
+    <main class="container">
+
+        <div class="page-top">
+            <h2>Safety Equipment</h2>
+            <p>Select your safety equipment and add it to your cart.</p>
+        </div>
+
+        <div class="product-grid" id="product-grid"></div>
+
+    </main>
+
+    <!-- ================= NOTIFICATION ================= -->
+
+    <div class="notification" id="notification">
+        <strong id="notification-title">Product Added to Cart</strong>
+
+        <p id="notification-text">
+            Product has been added to your cart.
+        </p>
+
+        <a href="cart.html">VIEW CART →</a>
+    </div>
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+        <h3>INDO INDUSTRIAL</h3>
+        <p>Industrial Equipment &amp; Engineering Service</p>
+        <p>© 2026 Indo Industrial. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        /* =====================================================
+           SAFETY PRODUCTS
+           ESAB SENTINEL A60 REMOVED
+        ===================================================== */
+
+        const products = [
+            {
+                name: "Blade Safety Glasses",
+                price: 125000,
+                image: "images/Blade Safety Glasses.jpeg",
+                description:
+                    "Protective safety glasses designed for industrial and workshop environments."
+            },
+
+            {
+                name: "CESIO Safety Glasses Clear Lens",
+                price: 95000,
+                image: "images/CESIO safety glasses clear lens.jpeg",
+                description:
+                    "Clear-lens safety glasses for everyday eye protection."
+            },
+
+            {
+                name: "LINCOLN ELECTRIC Welding Helmet",
+                price: 1850000,
+                image: "images/LINCOLN ELECTRIC Welding Helmet.jpeg",
+                description:
+                    "Protective welding helmet for industrial welding operations."
+            },
+
+            {
+                name: "WELDING HELMET AUTODARK CANO SRWH5",
+                price: 650000,
+                image: "images/WELDING HELMET AUTODARK CANO SRWH5.jpeg",
+                description:
+                    "Auto-darkening welding helmet for workshop and welding protection."
+            },
+
+            {
+                name: "Safety Shoes Jogger Turbo",
+                price: 875000,
+                image: "images/Safety Shoes Jogger Turbo.jpeg",
+                description:
+                    "Industrial safety footwear designed for workplace protection."
+            },
+
+            {
+                name: "Safety Shoes Krisbow Argon",
+                price: 625000,
+                image: "images/Safety Shoes Krisbow Argon.jpeg",
+                description:
+                    "Protective safety shoes suitable for industrial and workshop environments."
+            },
+
+            {
+                name: "SAFETYRUN Safety Equipment",
+                price: 450000,
+                image: "images/SAFETYRUN .jpeg",
+                description:
+                    "Safety equipment for general industrial workplace protection."
+            },
+
+            {
+                name: "Safeguard Zeus",
+                price: 350000,
+                image: "images/Safeguard Zeus.jpeg",
+                description:
+                    "Protective equipment designed for industrial safety applications."
+            }
+        ];
+
+        /* ================= QUANTITY ================= */
+
+        const quantities = {};
+
+        /* ================= RUPIAH FORMAT ================= */
+
+        function formatRupiah(number) {
+            return new Intl.NumberFormat("id-ID", {
+                style: "currency",
+                currency: "IDR",
+                maximumFractionDigits: 0
+            }).format(number);
+        }
+
+        /* ================= DISPLAY PRODUCTS ================= */
+
+        function displayProducts() {
+            const grid = document.getElementById("product-grid");
+
+            grid.innerHTML = "";
+
+            products.forEach(function(product, index) {
+                quantities[index] = 1;
+
+                grid.innerHTML += `
+                    <article class="product-card">
+
+                        <div class="product-image">
+                            <img
+                                src="${product.image}"
+                                alt="${product.name}"
+                                onerror="this.onerror=null; this.src='images/equipment.jpg';"
+                            >
+                        </div>
+
+                        <div class="product-info">
+
+                            <span class="category">
+                                SAFETY EQUIPMENT
+                            </span>
+
+                            <h3>${product.name}</h3>
+
+                            <p class="description">
+                                ${product.description}
+                            </p>
+
+                            <div class="price">
+                                ${formatRupiah(product.price)}
+                            </div>
+
+                            <div class="quantity-box">
+
+                                <button
+                                    type="button"
+                                    onclick="changeQuantity(${index}, -1)"
+                                >−</button>
+
+                                <span id="quantity-${index}">1</span>
+
+                                <button
+                                    type="button"
+                                    onclick="changeQuantity(${index}, 1)"
+                                >+</button>
+
+                            </div>
+
+                            <button
+                                type="button"
+                                class="add-cart"
+                                onclick="addToCart(${index})"
+                            >
+                                ADD TO CART
+                            </button>
+
+                        </div>
+                    </article>
+                `;
+            });
+        }
+
+        /* ================= CHANGE QUANTITY ================= */
+
+        function changeQuantity(index, amount) {
+            quantities[index] += amount;
+
+            if (quantities[index] < 1) {
+                quantities[index] = 1;
+            }
+
+            document.getElementById(
+                "quantity-" + index
+            ).textContent = quantities[index];
+        }
+
+        /* ================= ADD TO CART ================= */
+
+        function addToCart(index) {
+            const product = products[index];
+            const quantity = quantities[index];
+
+            let cart = JSON.parse(
+                localStorage.getItem("indoIndustrialCart")
+            ) || [];
+
+            const existing = cart.find(function(item) {
+                return item.name === product.name;
+            });
+
+            if (existing) {
+                existing.quantity += quantity;
+            } else {
+                cart.push({
+                    name: product.name,
+                    price: product.price,
+                    image: product.image,
+                    category: "Safety Equipment",
+                    quantity: quantity
+                });
+            }
+
+            localStorage.setItem(
+                "indoIndustrialCart",
+                JSON.stringify(cart)
+            );
+
+            updateCartCount();
+
+            showNotification(product.name, quantity);
+
+            quantities[index] = 1;
+
+            document.getElementById(
+                "quantity-" + index
+            ).textContent = 1;
+        }
+
+        /* ================= CART COUNT ================= */
+
+        function updateCartCount() {
+            const cart = JSON.parse(
+                localStorage.getItem("indoIndustrialCart")
+            ) || [];
+
+            let count = 0;
+
+            cart.forEach(function(item) {
+                count += Number(item.quantity) || 0;
+            });
+
+            document.getElementById("cart-count").textContent = count;
+        }
+
+        /* ================= NOTIFICATION ================= */
+
+        function showNotification(productName, quantity) {
+            const notification =
+                document.getElementById("notification");
+
+            document.getElementById(
+                "notification-title"
+            ).textContent = "Product Added to Cart";
+
+            document.getElementById(
+                "notification-text"
+            ).textContent =
+                quantity + " × " + productName +
+                " added to your cart.";
+
+            notification.classList.add("show");
+
+            clearTimeout(window.safetyNotificationTimeout);
+
+            window.safetyNotificationTimeout = setTimeout(
+                function() {
+                    notification.classList.remove("show");
+                },
+                3500
+            );
+        }
+
+        /* ================= START ================= */
+
+        displayProducts();
+        updateCartCount();
+    </script>
+
+</body>
+</html>

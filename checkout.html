@@ -1,0 +1,1373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Checkout | Indo Industrial</title>
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --navy: #0b1d35;
+    --navy2: #123b68;
+    --gold: #d5a63a;
+    --gold-light: #e8c56a;
+    --muted: #697586;
+    --border: #dfe4ea;
+    --background: #f4f6f8;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--background);
+    color: #182536;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* ================= NAVBAR ================= */
+
+.navbar {
+    background: var(--navy);
+    color: white;
+}
+
+.nav-container {
+    width: 90%;
+    max-width: 1200px;
+    min-height: 78px;
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo img {
+    width: 72px;
+    height: 72px;
+    object-fit: contain;
+}
+
+.logo-text strong {
+    display: block;
+    font-size: 18px;
+    letter-spacing: 2px;
+}
+
+.logo-text span {
+    display: block;
+    font-size: 9px;
+    color: #cbd5e1;
+    letter-spacing: 1px;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: var(--gold);
+}
+
+
+/* ================= HERO ================= */
+
+.hero {
+    background:
+        linear-gradient(
+            rgba(7,22,40,0.75),
+            rgba(7,22,40,0.75)
+        ),
+        url("images/foto pabrik 2.jpg");
+
+    background-size: cover;
+    background-position: center;
+
+    padding: 60px 20px;
+
+    text-align: center;
+    color: white;
+}
+
+.hero small {
+    color: var(--gold);
+    letter-spacing: 3px;
+    font-weight: bold;
+}
+
+.hero h1 {
+    font-size: 42px;
+    margin-top: 12px;
+}
+
+
+/* ================= CONTAINER ================= */
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 55px 0;
+}
+
+.checkout-layout {
+    display: grid;
+    grid-template-columns: 1.45fr 0.85fr;
+    gap: 30px;
+    align-items: start;
+}
+
+
+/* ================= BOX ================= */
+
+.box {
+    background: white;
+    border: 1px solid var(--border);
+    padding: 30px;
+}
+
+.box h2 {
+    font-size: 21px;
+    margin-bottom: 25px;
+}
+
+.section-title {
+    margin-top: 35px;
+}
+
+
+/* ================= FORM ================= */
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group.full {
+    grid-column: 1 / -1;
+}
+
+label {
+    display: block;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+input,
+textarea,
+select {
+    width: 100%;
+    padding: 13px;
+
+    border: 1px solid #ccd3dc;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+
+    background: white;
+}
+
+textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: var(--gold);
+    box-shadow: 0 0 0 2px rgba(213,166,58,0.12);
+}
+
+
+/* ================= OPTION ================= */
+
+.payment-option {
+    border: 1px solid var(--border);
+
+    padding: 15px;
+
+    margin-bottom: 12px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    cursor: pointer;
+
+    transition: .2s;
+}
+
+.payment-option:hover {
+    border-color: var(--gold);
+    background: #fffdf7;
+}
+
+.payment-option input {
+    width: auto;
+}
+
+.payment-option strong {
+    display: block;
+    font-size: 13px;
+}
+
+.payment-option small {
+    display: block;
+    color: var(--muted);
+    margin-top: 4px;
+    font-size: 11px;
+}
+
+
+/* ================= ORDER SUMMARY ================= */
+
+.summary-box {
+    position: sticky;
+    top: 20px;
+}
+
+.order-product {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+
+    padding: 15px 0;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.order-product img {
+    width: 70px;
+    height: 60px;
+    object-fit: contain;
+    background: #fafafa;
+}
+
+.order-product-info {
+    flex: 1;
+}
+
+.order-product-info h3 {
+    font-size: 12px;
+    line-height: 1.4;
+    margin-bottom: 5px;
+}
+
+.order-product-info p {
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.order-product-price {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+
+    padding: 10px 0;
+
+    font-size: 13px;
+}
+
+.summary-row span:last-child {
+    font-weight: bold;
+}
+
+.summary-row.total {
+    border-top: 1px solid var(--border);
+
+    margin-top: 10px;
+
+    padding-top: 18px;
+
+    font-size: 20px;
+
+    font-weight: bold;
+}
+
+.summary-row.total span:last-child {
+    color: var(--navy2);
+}
+
+
+/* ================= TAX INFO ================= */
+
+.tax-note {
+    font-size: 10px;
+    color: var(--muted);
+
+    margin-top: 10px;
+
+    line-height: 1.5;
+}
+
+
+/* ================= BUTTON ================= */
+
+.place-order {
+    width: 100%;
+
+    margin-top: 25px;
+
+    padding: 16px;
+
+    border: none;
+
+    background: var(--gold);
+
+    color: var(--navy);
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    letter-spacing: 1px;
+
+    transition: .2s;
+}
+
+.place-order:hover {
+    background: var(--gold-light);
+    transform: translateY(-1px);
+}
+
+.back-cart {
+    display: block;
+
+    text-align: center;
+
+    margin-top: 15px;
+
+    font-size: 12px;
+
+    color: var(--navy2);
+}
+
+.back-cart:hover {
+    text-decoration: underline;
+}
+
+
+/* ================= EMPTY ================= */
+
+.empty {
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.empty h2 {
+    margin-bottom: 10px;
+}
+
+.empty p {
+    color: var(--muted);
+    margin-bottom: 25px;
+}
+
+.empty a {
+    display: inline-block;
+
+    background: var(--gold);
+
+    padding: 13px 25px;
+
+    font-size: 12px;
+
+    font-weight: bold;
+}
+
+
+/* ================= FOOTER ================= */
+
+footer {
+    background: var(--navy);
+
+    color: white;
+
+    text-align: center;
+
+    padding: 45px 20px;
+
+    margin-top: 30px;
+}
+
+footer h3 {
+    letter-spacing: 2px;
+}
+
+footer p {
+    color: #aeb9c8;
+
+    font-size: 12px;
+
+    margin-top: 7px;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 850px) {
+
+    .checkout-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .summary-box {
+        position: static;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .form-group.full {
+        grid-column: auto;
+    }
+
+    .nav-container {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 0;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="navbar">
+
+    <div class="nav-container">
+
+        <a href="index.html" class="logo">
+
+            <img
+                src="images/logo_baru-removebg-preview.png"
+                alt="Indo Industrial"
+            >
+
+            <div class="logo-text">
+
+                <strong>
+                    INDO INDUSTRIAL
+                </strong>
+
+                <span>
+                    INDUSTRIAL EQUIPMENT & ENGINEERING
+                </span>
+
+            </div>
+
+        </a>
+
+
+        <nav>
+
+            <a href="index.html">
+                HOME
+            </a>
+
+            <a href="products.html">
+                PRODUCTS
+            </a>
+
+            <a href="cart.html">
+                🛒 CART
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+    <small>
+        INDO INDUSTRIAL
+    </small>
+
+    <h1>
+        Checkout
+    </h1>
+
+</section>
+
+
+<!-- ================= CHECKOUT ================= -->
+
+<main class="container">
+
+    <div id="empty-message"></div>
+
+
+    <div
+        class="checkout-layout"
+        id="checkout-content"
+    >
+
+
+        <!-- ================= CUSTOMER INFORMATION ================= -->
+
+        <div class="box">
+
+            <h2>
+                Customer Information
+            </h2>
+
+
+            <form id="checkout-form">
+
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label>
+                            Full Name *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="name"
+                            placeholder="Enter your full name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Phone Number *
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="phone"
+                            placeholder="08xxxxxxxxxx"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label>
+                            Email *
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="example@email.com"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Postal Code *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="postal"
+                            placeholder="401xx"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Full Address *
+                    </label>
+
+                    <textarea
+                        id="address"
+                        placeholder="Street name, building number, house number, etc."
+                        required
+                    ></textarea>
+
+                </div>
+
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label>
+                            City / Regency *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="city"
+                            placeholder="Bandung"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Province *
+                        </label>
+
+                        <select id="province" required>
+
+                            <option value="">
+                                Select Province
+                            </option>
+
+                            <option>Jawa Barat</option>
+                            <option>DKI Jakarta</option>
+                            <option>Banten</option>
+                            <option>Jawa Tengah</option>
+                            <option>Jawa Timur</option>
+                            <option>Sumatera Utara</option>
+                            <option>Sumatera Barat</option>
+                            <option>Sumatera Selatan</option>
+                            <option>Bali</option>
+                            <option>Kalimantan Timur</option>
+                            <option>Sulawesi Selatan</option>
+                            <option>Sulawesi Utara</option>
+                            <option>Kalimantan Barat</option>
+                            <option>Kalimantan Selatan</option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ================= SHIPPING ================= -->
+
+                <h2 class="section-title">
+                    Shipping Method
+                </h2>
+
+
+                <label class="payment-option">
+
+                    <input
+                        type="radio"
+                        name="shipping"
+                        value="50000"
+                        data-name="Standard Delivery"
+                        checked
+                    >
+
+                    <div>
+
+                        <strong>
+                            Standard Delivery — Rp 50.000
+                        </strong>
+
+                        <small>
+                            Estimated 3–7 working days
+                        </small>
+
+                    </div>
+
+                </label>
+
+
+                <label class="payment-option">
+
+                    <input
+                        type="radio"
+                        name="shipping"
+                        value="100000"
+                        data-name="Express Delivery"
+                    >
+
+                    <div>
+
+                        <strong>
+                            Express Delivery — Rp 100.000
+                        </strong>
+
+                        <small>
+                            Estimated 1–3 working days
+                        </small>
+
+                    </div>
+
+                </label>
+
+
+                <!-- ================= PAYMENT ================= -->
+
+                <h2 class="section-title">
+                    Payment Method
+                </h2>
+
+
+                <label class="payment-option">
+
+                    <input
+                        type="radio"
+                        name="payment"
+                        value="Bank Transfer"
+                        checked
+                    >
+
+                    <div>
+
+                        <strong>
+                            Bank Transfer
+                        </strong>
+
+                        <small>
+                            Transfer through your bank
+                        </small>
+
+                    </div>
+
+                </label>
+
+
+                <label class="payment-option">
+
+                    <input
+                        type="radio"
+                        name="payment"
+                        value="E-Wallet"
+                    >
+
+                    <div>
+
+                        <strong>
+                            E-Wallet
+                        </strong>
+
+                        <small>
+                            QRIS / GoPay / OVO / DANA
+                        </small>
+
+                    </div>
+
+                </label>
+
+
+                <label class="payment-option">
+
+                    <input
+                        type="radio"
+                        name="payment"
+                        value="Credit / Debit Card"
+                    >
+
+                    <div>
+
+                        <strong>
+                            Credit / Debit Card
+                        </strong>
+
+                        <small>
+                            Visa / Mastercard
+                        </small>
+
+                    </div>
+
+                </label>
+
+
+            </form>
+
+        </div>
+
+
+
+        <!-- ================= ORDER SUMMARY ================= -->
+
+        <div class="box summary-box">
+
+            <h2>
+                Your Order
+            </h2>
+
+
+            <div id="order-products"></div>
+
+
+            <div class="summary-row">
+
+                <span>
+                    Subtotal
+                </span>
+
+                <span id="subtotal">
+                    Rp 0
+                </span>
+
+            </div>
+
+
+            <div class="summary-row">
+
+                <span>
+                    Shipping
+                </span>
+
+                <span id="shipping">
+                    Rp 50.000
+                </span>
+
+            </div>
+
+
+            <div class="summary-row">
+
+                <span>
+                    PPN (11%)
+                </span>
+
+                <span id="tax">
+                    Rp 0
+                </span>
+
+            </div>
+
+
+            <div class="summary-row total">
+
+                <span>
+                    Grand Total
+                </span>
+
+                <span id="total">
+                    Rp 0
+                </span>
+
+            </div>
+
+
+            <p class="tax-note">
+                PPN is calculated at 11% of the product subtotal.
+                Shipping is added separately.
+            </p>
+
+
+            <button
+                class="place-order"
+                onclick="placeOrder()"
+            >
+                PLACE ORDER
+            </button>
+
+
+            <a
+                href="cart.html"
+                class="back-cart"
+            >
+                ← Back to Cart
+            </a>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <h3>
+        INDO INDUSTRIAL
+    </h3>
+
+    <p>
+        Industrial Equipment & Engineering Service
+    </p>
+
+    <p>
+        © 2026 Indo Industrial. All Rights Reserved.
+    </p>
+
+</footer>
+
+
+<script>
+
+/* =====================================================
+   LOAD CART
+===================================================== */
+
+let cart =
+    JSON.parse(
+        localStorage.getItem("indoIndustrialCart")
+    ) || [];
+
+
+/* =====================================================
+   FORMAT RUPIAH
+===================================================== */
+
+function formatRupiah(number) {
+
+    return new Intl.NumberFormat(
+        "id-ID",
+        {
+            style: "currency",
+            currency: "IDR",
+            maximumFractionDigits: 0
+        }
+    ).format(number);
+
+}
+
+
+/* =====================================================
+   CALCULATE SUBTOTAL
+===================================================== */
+
+function getSubtotal() {
+
+    let subtotal = 0;
+
+    cart.forEach(function(item) {
+
+        subtotal +=
+            Number(item.price) *
+            Number(item.quantity);
+
+    });
+
+    return subtotal;
+
+}
+
+
+/* =====================================================
+   DISPLAY ORDER
+===================================================== */
+
+function displayOrder() {
+
+    const container =
+        document.getElementById(
+            "order-products"
+        );
+
+    container.innerHTML = "";
+
+    cart.forEach(function(item) {
+
+        const itemTotal =
+            Number(item.price) *
+            Number(item.quantity);
+
+
+        container.innerHTML += `
+
+            <div class="order-product">
+
+                <img
+                    src="${item.image}"
+                    alt="${item.name}"
+                >
+
+                <div class="order-product-info">
+
+                    <h3>
+                        ${item.name}
+                    </h3>
+
+                    <p>
+                        ${formatRupiah(item.price)}
+                        × ${item.quantity}
+                    </p>
+
+                </div>
+
+                <div class="order-product-price">
+
+                    ${formatRupiah(itemTotal)}
+
+                </div>
+
+            </div>
+
+        `;
+
+    });
+
+
+    updateTotal();
+
+}
+
+
+/* =====================================================
+   UPDATE TOTAL
+===================================================== */
+
+function updateTotal() {
+
+    const subtotal =
+        getSubtotal();
+
+
+    const shipping =
+        Number(
+            document.querySelector(
+                'input[name="shipping"]:checked'
+            ).value
+        );
+
+
+    const tax =
+        Math.round(
+            subtotal * 0.11
+        );
+
+
+    const total =
+        subtotal +
+        shipping +
+        tax;
+
+
+    document.getElementById(
+        "subtotal"
+    ).textContent =
+        formatRupiah(subtotal);
+
+
+    document.getElementById(
+        "shipping"
+    ).textContent =
+        formatRupiah(shipping);
+
+
+    document.getElementById(
+        "tax"
+    ).textContent =
+        formatRupiah(tax);
+
+
+    document.getElementById(
+        "total"
+    ).textContent =
+        formatRupiah(total);
+
+}
+
+
+/* =====================================================
+   SHIPPING CHANGE
+===================================================== */
+
+document
+.querySelectorAll(
+    'input[name="shipping"]'
+)
+.forEach(function(option) {
+
+    option.addEventListener(
+        "change",
+        function() {
+
+            updateTotal();
+
+        }
+    );
+
+});
+
+
+/* =====================================================
+   CHECK EMPTY CART
+===================================================== */
+
+function checkCart() {
+
+    const checkout =
+        document.getElementById(
+            "checkout-content"
+        );
+
+    const empty =
+        document.getElementById(
+            "empty-message"
+        );
+
+
+    if (cart.length === 0) {
+
+        checkout.style.display = "none";
+
+
+        empty.innerHTML = `
+
+            <div class="box empty">
+
+                <h2>
+                    Your Cart Is Empty
+                </h2>
+
+                <p>
+                    Please add a product
+                    before checking out.
+                </p>
+
+                <a href="products.html">
+                    BROWSE PRODUCTS
+                </a>
+
+            </div>
+
+        `;
+
+        return false;
+
+    }
+
+
+    return true;
+
+}
+
+
+/* =====================================================
+   PLACE ORDER
+===================================================== */
+
+function placeOrder() {
+
+    const form =
+        document.getElementById(
+            "checkout-form"
+        );
+
+
+    if (!form.checkValidity()) {
+
+        form.reportValidity();
+
+        return;
+
+    }
+
+
+    const shippingInput =
+        document.querySelector(
+            'input[name="shipping"]:checked'
+        );
+
+
+    const paymentInput =
+        document.querySelector(
+            'input[name="payment"]:checked'
+        );
+
+
+    const subtotal =
+        getSubtotal();
+
+
+    const shipping =
+        Number(
+            shippingInput.value
+        );
+
+
+    const tax =
+        Math.round(
+            subtotal * 0.11
+        );
+
+
+    const total =
+        subtotal +
+        shipping +
+        tax;
+
+
+    const orderNumber =
+        "INDO-" +
+        Date.now()
+        .toString()
+        .slice(-8);
+
+
+    const orderData = {
+
+        orderNumber:
+            orderNumber,
+
+        date:
+            new Date().toLocaleString(
+                "id-ID"
+            ),
+
+        customer: {
+
+            name:
+                document.getElementById(
+                    "name"
+                ).value,
+
+            phone:
+                document.getElementById(
+                    "phone"
+                ).value,
+
+            email:
+                document.getElementById(
+                    "email"
+                ).value,
+
+            address:
+                document.getElementById(
+                    "address"
+                ).value,
+
+            city:
+                document.getElementById(
+                    "city"
+                ).value,
+
+            province:
+                document.getElementById(
+                    "province"
+                ).value,
+
+            postal:
+                document.getElementById(
+                    "postal"
+                ).value
+
+        },
+
+
+        shipping: {
+
+            name:
+                shippingInput.dataset.name,
+
+            cost:
+                shipping
+
+        },
+
+
+        payment:
+            paymentInput.value,
+
+
+        products:
+            cart,
+
+
+        subtotal:
+            subtotal,
+
+        tax:
+            tax,
+
+        total:
+            total
+
+    };
+
+
+    localStorage.setItem(
+        "indoIndustrialOrder",
+        JSON.stringify(orderData)
+    );
+
+
+    localStorage.removeItem(
+        "indoIndustrialCart"
+    );
+
+
+    window.location.href =
+        "order-confirmation.html";
+
+}
+
+
+/* =====================================================
+   START
+===================================================== */
+
+if (checkCart()) {
+
+    displayOrder();
+
+}
+
+</script>
+
+</body>
+</html>

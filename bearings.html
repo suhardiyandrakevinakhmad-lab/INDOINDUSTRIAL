@@ -1,0 +1,717 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bearings & Mechanical Parts | Indo Industrial</title>
+
+<style>
+:root {
+    --navy: #0b1d35;
+    --gold: #d5a63a;
+    --light: #f4f6f8;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--light);
+    color: #253247;
+    line-height: 1.6;
+}
+
+header {
+    background: var(--navy);
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 3px 12px #0002;
+}
+
+.navbar {
+    max-width: 1200px;
+    margin: auto;
+    padding: 13px 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: white;
+    text-decoration: none;
+}
+
+.brand img {
+    width: 52px;
+    height: 52px;
+    object-fit: contain;
+    background: white;
+    border-radius: 5px;
+}
+
+.brand strong {
+    display: block;
+    letter-spacing: 1px;
+    font-size: 18px;
+}
+
+.brand small {
+    display: block;
+    font-size: 10px;
+    letter-spacing: 1px;
+    color: #e6c66f;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+nav a:hover,
+nav a.active {
+    color: var(--gold);
+}
+
+.cart-link span {
+    background: var(--gold);
+    color: var(--navy);
+    padding: 2px 7px;
+    border-radius: 20px;
+    margin-left: 4px;
+}
+
+.hero {
+    min-height: 270px;
+    background:
+        linear-gradient(90deg, rgba(5,17,33,.9), rgba(5,17,33,.48)),
+        url('./images/equipment.jpg') center/cover;
+    display: flex;
+    align-items: center;
+}
+
+.hero-inner {
+    max-width: 1200px;
+    width: 100%;
+    margin: auto;
+    padding: 45px 22px;
+    color: white;
+}
+
+.eyebrow {
+    color: var(--gold);
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.hero h1 {
+    font-size: clamp(32px, 5vw, 48px);
+    margin: 8px 0;
+}
+
+.hero p {
+    max-width: 650px;
+    color: #e5eaf1;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 35px auto 60px;
+    padding: 0 22px;
+}
+
+.section-head {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 22px;
+}
+
+.section-head h2 {
+    font-size: 27px;
+    color: var(--navy);
+}
+
+.section-head p {
+    color: #667085;
+    font-size: 14px;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.product-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #e6e9ee;
+    box-shadow: 0 5px 18px #0b1d350d;
+    display: flex;
+    flex-direction: column;
+    transition: transform .2s, box-shadow .2s;
+}
+
+.product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 26px #0b1d3518;
+}
+
+.product-image {
+    height: 220px;
+    background: white;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #edf0f3;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.image-error {
+    text-align: center;
+    color: #b42318;
+    font-size: 12px;
+    overflow-wrap: anywhere;
+}
+
+.product-info {
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.category-tag {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #92701d;
+    font-weight: bold;
+}
+
+.product-info h3 {
+    font-size: 17px;
+    line-height: 1.4;
+    color: var(--navy);
+    margin: 7px 0;
+}
+
+.description {
+    font-size: 13px;
+    color: #697586;
+    min-height: 42px;
+}
+
+.price {
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--navy);
+    margin: 13px 0 4px;
+}
+
+.price-note {
+    font-size: 10px;
+    color: #8992a0;
+    margin-bottom: 13px;
+}
+
+.quantity-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: auto;
+    margin-bottom: 13px;
+}
+
+.quantity-row > span {
+    font-size: 12px;
+    color: #667085;
+    margin-right: auto;
+}
+
+.qty-control {
+    display: flex;
+    align-items: center;
+    border: 1px solid #dce1e8;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.qty-control button {
+    width: 31px;
+    height: 31px;
+    border: 0;
+    background: #f2f4f7;
+    font-size: 18px;
+    cursor: pointer;
+    color: var(--navy);
+}
+
+.qty-control input {
+    width: 36px;
+    text-align: center;
+    border: 0;
+    outline: 0;
+    font-weight: bold;
+    color: var(--navy);
+}
+
+.add-btn {
+    border: 0;
+    border-radius: 6px;
+    background: var(--gold);
+    color: var(--navy);
+    padding: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background .2s;
+}
+
+.add-btn:hover {
+    background: #e5b94d;
+}
+
+footer {
+    background: var(--navy);
+    color: #dbe2ec;
+    padding: 28px 22px;
+    text-align: center;
+    font-size: 12px;
+}
+
+footer strong {
+    color: var(--gold);
+}
+
+.notification {
+    position: fixed;
+    right: 22px;
+    bottom: 22px;
+    z-index: 30;
+    width: min(360px, calc(100% - 32px));
+    background: white;
+    border-left: 5px solid var(--gold);
+    box-shadow: 0 10px 35px #0003;
+    border-radius: 9px;
+    padding: 16px 18px;
+    transform: translateY(150%);
+    opacity: 0;
+    transition: all .35s;
+}
+
+.notification.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.notification strong {
+    display: block;
+    color: var(--navy);
+    margin-bottom: 3px;
+}
+
+.notification p {
+    font-size: 13px;
+    color: #667085;
+}
+
+.notification a {
+    display: inline-block;
+    margin-top: 8px;
+    color: #876415;
+    font-weight: bold;
+    font-size: 13px;
+    text-decoration: none;
+}
+
+@media (max-width: 900px) {
+    .product-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .navbar {
+        align-items: flex-start;
+    }
+
+    nav {
+        gap: 13px;
+    }
+}
+
+@media (max-width: 580px) {
+    .navbar {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    nav {
+        gap: 14px;
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .product-image {
+        height: 230px;
+    }
+
+    .section-head {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="navbar">
+        <a class="brand" href="index.html">
+            <img src="./images/logo adhi.jpg"
+                 alt="Indo Industrial Logo"
+                 onerror="this.style.display='none'">
+            <span>
+                <strong>INDO INDUSTRIAL</strong>
+                <small>INDUSTRIAL EQUIPMENT &amp; ENGINEERING</small>
+            </span>
+        </a>
+
+        <nav>
+            <a href="index.html">HOME</a>
+            <a href="products.html" class="active">PRODUCTS</a>
+            <a href="cart.html" class="cart-link">
+                CART <span id="cart-count">0</span>
+            </a>
+        </nav>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="hero-inner">
+        <div class="eyebrow">Industrial Components</div>
+        <h1>Bearings &amp; Mechanical Parts</h1>
+        <p>
+            Reliable bearings and mechanical components for rotating
+            equipment, industrial machinery, and manufacturing applications.
+        </p>
+    </div>
+</section>
+
+<main class="container">
+    <div class="section-head">
+        <div>
+            <h2>Our Bearing Products</h2>
+            <p>Explore our mechanical component selection.</p>
+        </div>
+        <p>15 products</p>
+    </div>
+
+    <div class="product-grid" id="product-grid"></div>
+</main>
+
+<footer>
+    <strong>INDO INDUSTRIAL</strong>
+    <br>
+    Industrial Equipment &amp; Engineering
+    <br>
+    <span>School project demonstration website · Est. 2026</span>
+</footer>
+
+<div class="notification" id="notification"
+     role="status" aria-live="polite">
+    <strong>✓ Added to Cart!</strong>
+    <p id="notification-text">Product added to your shopping cart.</p>
+    <a href="cart.html">View Cart →</a>
+</div>
+
+<script>
+const products = [
+    {
+        name: "Angular Contact Ball Bearing",
+        price: 350000,
+        image: "angular-contact-ball-bearing.webp",
+        description: "Designed for combined radial and axial loads."
+    },
+    {
+        name: "Bearing Unit",
+        price: 275000,
+        image: "bearing-unit.webp",
+        description: "A bearing assembly for industrial machinery."
+    },
+    {
+        name: "Bicycle Bearing",
+        price: 75000,
+        image: "bicycle-bearing.webp",
+        description: "Compact bearing for suitable rotating systems."
+    },
+    {
+        name: "Coated Bearing",
+        price: 425000,
+        image: "coated-bearing.webp",
+        description: "Coated bearing for selected operating conditions."
+    },
+    {
+        name: "Combined Bearing",
+        price: 550000,
+        image: "combined-bearing.webp",
+        description: "Bearing for combined load requirements."
+    },
+    {
+        name: "Combined Precision Bearing",
+        price: 850000,
+        image: "combined-precision-bearing.webp",
+        description: "Precision component for accurate movement."
+    },
+    {
+        name: "Cross Roller Bearing",
+        price: 950000,
+        image: "cross-roller-bearing.webp",
+        description: "Provides rigidity and rotational accuracy."
+    },
+    {
+        name: "Cylindrical Roller Bearing",
+        price: 475000,
+        image: "cylindrical-roller-bearing.webp",
+        description: "Suitable for applications with radial loads."
+    },
+    {
+        name: "Electrically Insulated Bearing",
+        price: 1250000,
+        image: "electrically-insulated-bearing.webp",
+        description: "Designed to help protect against electrical current damage."
+    },
+    {
+        name: "Deep Groove Ball Bearing",
+        price: 150000,
+        image: "deep-groove-ball-bearing.webp",
+        description: "Versatile bearing for rotating equipment."
+    },
+    {
+        name: "Industrial Gears",
+        price: 325000,
+        image: "gears.webp",
+        description: "Mechanical gears for transmitting motion and torque."
+    },
+    {
+        name: "Guide Wheels",
+        price: 225000,
+        image: "guide-wheels.webp",
+        description: "Guide wheels for controlled industrial movement."
+    },
+    {
+        name: "Thrust Roller Bearing",
+        price: 625000,
+        image: "thrust-roller-bearing.webp",
+        description: "Designed to support axial loads."
+    },
+    {
+        name: "Track Rollers",
+        price: 275000,
+        image: "track-rollers.webp",
+        description: "Rollers for track-guided industrial mechanisms."
+    },
+    {
+        name: "Tapered Roller Bearing",
+        price: 450000,
+        image: "tapered-roller-bearing.webp",
+        description: "Supports radial and axial loads."
+    }
+];
+
+const quantities = {};
+const grid = document.getElementById("product-grid");
+
+function rupiah(value) {
+    return new Intl.NumberFormat("id-ID", {
+        style: "currency",
+        currency: "IDR",
+        maximumFractionDigits: 0
+    }).format(value);
+}
+
+function displayProducts() {
+    grid.innerHTML = products.map((product, index) => {
+        quantities[index] = 1;
+
+        return `
+        <article class="product-card">
+            <div class="product-image">
+                <img
+                    src="./images/${product.image}"
+                    alt="${product.name}"
+                    loading="lazy"
+                    onerror="this.style.display='none';this.parentElement.innerHTML='<p class=&quot;image-error&quot;>Image not found:<br>${product.image}</p>'">
+            </div>
+
+            <div class="product-info">
+                <span class="category-tag">Bearings &amp; Mechanical Parts</span>
+                <h3>${product.name}</h3>
+                <p class="description">${product.description}</p>
+
+                <div class="price">${rupiah(product.price)}</div>
+                <div class="price-note">
+                    Estimated price for school project
+                </div>
+
+                <div class="quantity-row">
+                    <span>Quantity</span>
+                    <div class="qty-control">
+                        <button type="button"
+                            aria-label="Decrease quantity"
+                            onclick="changeQuantity(${index}, -1)">−</button>
+
+                        <input id="qty-${index}"
+                            value="1"
+                            readonly
+                            aria-label="Quantity">
+
+                        <button type="button"
+                            aria-label="Increase quantity"
+                            onclick="changeQuantity(${index}, 1)">+</button>
+                    </div>
+                </div>
+
+                <button class="add-btn"
+                    type="button"
+                    onclick="addToCart(${index})">
+                    ADD TO CART
+                </button>
+            </div>
+        </article>`;
+    }).join("");
+}
+
+function changeQuantity(index, change) {
+    quantities[index] = Math.max(
+        1,
+        Math.min(999, (quantities[index] || 1) + change)
+    );
+
+    document.getElementById(`qty-${index}`).value = quantities[index];
+}
+
+function getCart() {
+    try {
+        const data = JSON.parse(
+            localStorage.getItem("indoIndustrialCart") || "[]"
+        );
+
+        return Array.isArray(data) ? data : [];
+    } catch (error) {
+        return [];
+    }
+}
+
+function saveCart(cart) {
+    localStorage.setItem("indoIndustrialCart", JSON.stringify(cart));
+}
+
+function updateCartCount() {
+    const cart = getCart();
+
+    document.getElementById("cart-count").textContent =
+        cart.reduce(
+            (sum, item) => sum + (Number(item.quantity) || 0),
+            0
+        );
+}
+
+let notificationTimer;
+
+function showNotification(message) {
+    document.getElementById("notification-text").textContent = message;
+
+    const box = document.getElementById("notification");
+    box.classList.add("show");
+
+    clearTimeout(notificationTimer);
+
+    notificationTimer = setTimeout(() => {
+        box.classList.remove("show");
+    }, 3200);
+}
+
+function addToCart(index) {
+    const product = products[index];
+    const cart = getCart();
+    const quantity = quantities[index] || 1;
+
+    const existing = cart.find(item =>
+        item.name === product.name &&
+        (
+            item.category === "Bearings & Mechanical Parts" ||
+            item.category === "Bearings"
+        )
+    );
+
+    if (existing) {
+        existing.quantity =
+            (Number(existing.quantity) || 0) + quantity;
+
+        // Simpan nama file saja, sama seperti format halaman ini.
+        existing.image = product.image;
+        existing.price = product.price;
+        existing.category = "Bearings & Mechanical Parts";
+    } else {
+        cart.push({
+            name: product.name,
+            price: product.price,
+            image: product.image,
+            category: "Bearings & Mechanical Parts",
+            quantity: quantity
+        });
+    }
+
+    try {
+        saveCart(cart);
+    } catch (error) {
+        showNotification("Unable to save cart. Please try again.");
+        return;
+    }
+
+    updateCartCount();
+
+    showNotification(
+        `${product.name} (${quantity} item) added to your cart.`
+    );
+}
+
+displayProducts();
+updateCartCount();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,760 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Generators | Indo Industrial</title>
+
+<style>
+:root {
+    --navy: #0b1d35;
+    --gold: #d5a63a;
+    --light: #f4f6f8;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--light);
+    color: #253247;
+    line-height: 1.6;
+}
+
+/* NAVBAR */
+header {
+    background: var(--navy);
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 3px 12px #0002;
+}
+
+.navbar {
+    max-width: 1200px;
+    margin: auto;
+    padding: 13px 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: white;
+    text-decoration: none;
+}
+
+.brand img {
+    width: 72px;
+    height: 72px;
+    object-fit: contain;
+    background: transparent;
+    border-radius: 0;
+    flex-shrink: 0;
+}
+
+.brand strong {
+    display: block;
+    letter-spacing: 1px;
+    font-size: 18px;
+}
+
+.brand small {
+    display: block;
+    font-size: 10px;
+    letter-spacing: 1px;
+    color: #e6c66f;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+nav a:hover,
+nav a.active {
+    color: var(--gold);
+}
+
+.cart-link span {
+    background: var(--gold);
+    color: var(--navy);
+    padding: 2px 7px;
+    border-radius: 20px;
+    margin-left: 4px;
+}
+
+/* HERO */
+.hero {
+    min-height: 270px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(5, 17, 33, 0.65),
+            rgba(5, 17, 33, 0.35)
+        ),
+        url("images/foto pabrik 12.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    align-items: center;
+}
+
+.hero-inner {
+    max-width: 1200px;
+    width: 100%;
+    margin: auto;
+    padding: 45px 22px;
+    color: white;
+}
+
+.eyebrow {
+    color: var(--gold);
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.hero h1 {
+    font-size: clamp(32px, 5vw, 48px);
+    margin: 8px 0;
+}
+
+.hero p {
+    max-width: 650px;
+    color: #e5eaf1;
+}
+
+/* PRODUCTS */
+.container {
+    max-width: 1200px;
+    margin: 35px auto 60px;
+    padding: 0 22px;
+}
+
+.section-head {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 22px;
+}
+
+.section-head h2 {
+    font-size: 27px;
+    color: var(--navy);
+}
+
+.section-head p {
+    color: #667085;
+    font-size: 14px;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.product-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #e6e9ee;
+    box-shadow: 0 5px 18px #0b1d350d;
+    display: flex;
+    flex-direction: column;
+    transition: transform .2s, box-shadow .2s;
+}
+
+.product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 26px #0b1d3518;
+}
+
+.product-image {
+    height: 220px;
+    background: white;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #edf0f3;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.product-info {
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.category-tag {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #92701d;
+    font-weight: bold;
+}
+
+.product-info h3 {
+    font-size: 17px;
+    line-height: 1.4;
+    color: var(--navy);
+    margin: 7px 0;
+}
+
+.description {
+    font-size: 13px;
+    color: #697586;
+    min-height: 42px;
+}
+
+.price {
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--navy);
+    margin: 13px 0 4px;
+}
+
+.price-note {
+    font-size: 10px;
+    color: #8992a0;
+    margin-bottom: 13px;
+}
+
+.quantity-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: auto;
+    margin-bottom: 13px;
+}
+
+.quantity-row span {
+    font-size: 12px;
+    color: #667085;
+    margin-right: auto;
+}
+
+.qty-control {
+    display: flex;
+    align-items: center;
+    border: 1px solid #dce1e8;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.qty-control button {
+    width: 31px;
+    height: 31px;
+    border: 0;
+    background: #f2f4f7;
+    font-size: 18px;
+    cursor: pointer;
+    color: var(--navy);
+}
+
+.qty-control input {
+    width: 36px;
+    text-align: center;
+    border: 0;
+    outline: 0;
+    font-weight: bold;
+    color: var(--navy);
+}
+
+.add-btn {
+    display: block;
+    width: 100%;
+    margin-top: 15px;
+    padding: 13px 16px;
+
+    border: 1px solid var(--gold);
+    border-radius: 4px;
+
+    background: var(--gold);
+    color: var(--navy);
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1.2px;
+    text-align: center;
+
+    cursor: pointer;
+    transition: none;
+}
+
+.add-btn:hover,
+.add-btn:focus,
+.add-btn:focus-visible {
+    background: #e5b94d;
+    color: var(--navy);
+    border-color: #e5b94d;
+    outline: none;
+}
+
+.add-btn:active {
+    background: var(--gold);
+    color: var(--navy);
+    border-color: var(--gold);
+    transform: none;
+    box-shadow: none;
+}
+
+.add-btn:hover {
+    background: #e5b94d;
+}
+
+/* FOOTER */
+footer {
+    background: var(--navy);
+    color: #dbe2ec;
+    padding: 28px 22px;
+    text-align: center;
+    font-size: 12px;
+}
+
+footer strong {
+    color: var(--gold);
+}
+
+/* CART NOTIFICATION */
+.notification {
+    position: fixed;
+    right: 22px;
+    bottom: 22px;
+    z-index: 30;
+    width: min(360px, calc(100% - 32px));
+    background: white;
+    border-left: 5px solid var(--gold);
+    box-shadow: 0 10px 35px #0003;
+    border-radius: 9px;
+    padding: 16px 18px;
+    transform: translateY(150%);
+    opacity: 0;
+    transition: all .35s;
+}
+
+.notification.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.notification strong {
+    display: block;
+    color: var(--navy);
+    margin-bottom: 3px;
+}
+
+.notification p {
+    font-size: 13px;
+    color: #667085;
+}
+
+.notification a {
+    display: inline-block;
+    margin-top: 8px;
+    color: #876415;
+    font-weight: bold;
+    font-size: 13px;
+    text-decoration: none;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .product-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .navbar {
+        align-items: flex-start;
+    }
+
+    nav {
+        gap: 13px;
+    }
+}
+
+@media (max-width: 580px) {
+    .navbar {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    nav {
+        gap: 14px;
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .product-image {
+        height: 230px;
+    }
+
+    .section-head {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="navbar">
+        <a class="brand" href="index.html">
+            <img src="images/logo_baru-removebg-preview.png"
+     alt="Indo Industrial Logo">
+
+            <span>
+                <strong>INDO INDUSTRIAL</strong>
+                <small>INDUSTRIAL EQUIPMENT &amp; ENGINEERING</small>
+            </span>
+        </a>
+
+        <nav>
+            <a href="index.html">HOME</a>
+            <a href="products.html" class="active">PRODUCTS</a>
+            <a href="cart.html" class="cart-link">
+                CART <span id="cart-count">0</span>
+            </a>
+        </nav>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="hero-inner">
+        <div class="eyebrow">Industrial Power Solutions</div>
+        <h1>Generators</h1>
+        <p>
+            Explore generator options for workshops, construction
+            projects, backup electricity, and industrial applications.
+        </p>
+    </div>
+</section>
+
+<main class="container">
+    <div class="section-head">
+        <div>
+            <h2>Generator Products</h2>
+            <p>Power equipment for different industrial needs.</p>
+        </div>
+        <p>18 products</p>
+    </div>
+
+    <div class="product-grid" id="product-grid"></div>
+</main>
+
+<footer>
+    <strong>INDO INDUSTRIAL</strong>
+    <br>
+    Industrial Equipment &amp; Engineering
+    <br>
+    <span>School project demonstration website · Est. 2026</span>
+</footer>
+
+<div class="notification" id="notification" role="status" aria-live="polite">
+    <strong>✓ Added to Cart!</strong>
+    <p id="notification-text">Product added to your shopping cart.</p>
+    <a href="cart.html">View Cart →</a>
+</div>
+
+<script>
+const products = [
+    {
+        name: "5kW Electric Start Petrol Generator",
+        price: 3500000,
+        image: "5KW-electric-start-petrol-generator.jpg.avif",
+        description: "Compact petrol generator for general backup power."
+    },
+    {
+        name: "7HP Recoil Starter Gasoline Generator",
+        price: 2800000,
+        image: "7hp-recoil-starter-gasoline-generator.jpg.avif",
+        description: "Portable gasoline generator with recoil starter."
+    },
+    {
+        name: "65kVA Yangdong Diesel Generator",
+        price: 35000000,
+        image: "65kva-inline-4-stroke-yangdong-genset-mine-use.jpg.avif",
+        description: "Diesel genset for demanding work and site use."
+    },
+    {
+        name: "110V Soundproof Waterproof Generator",
+        price: 42000000,
+        image: "110v-soundproof-waterproof-type-fawde-genset-768x768.jpg",
+        description: "Enclosed generator designed for quieter operation."
+    },
+    {
+        name: "250kVA Heavy-Duty Diesel Generator",
+        price: 185000000,
+        image: "200kw-250kva-heavy-duty-power-diesel-genset-768x768.jpg",
+        description: "High-capacity diesel power for industrial applications."
+    },
+    {
+        name: "375kVA Portable Diesel Generator",
+        price: 220000000,
+        image: "375kva-portable-electricity-diesel-genset-for-construction.jpg.avif",
+        description: "Large-capacity generator for construction sites."
+    },
+    {
+        name: "7500W High-Power Home Generator",
+        price: 4500000,
+        image: "7500-watt-big-power-generator-for-home-2.jpg.avif",
+        description: "Backup power option for selected home and workshop needs."
+    },
+    {
+        name: "10,000W Large Portable Petrol Generator",
+        price: 6500000,
+        image: "10000-watt-large-portable-generator-petrol.jpg.avif",
+        description: "Portable petrol generator with high power output."
+    },
+    {
+        name: "Air-Cooled Remote Start Gasoline Generator",
+        price: 5800000,
+        image: "air-cooled-remote-start-gasoline-generator-2.jpg.avif",
+        description: "Air-cooled gasoline generator with remote-start design."
+    },
+    {
+        name: "48V DC Petrol Generator",
+        price: 4200000,
+        image: "electric-48v-dc-petrol-generator.jpg.avif",
+        description: "Petrol-powered generator listed as a 48V DC model."
+    },
+    {
+        name: "Commercial Electric Start Diesel Generator",
+        price: 55000000,
+        image: "commercial-large-electric-start-diesel-generator.jpg.avif",
+        description: "Commercial diesel generator with electric-start design."
+    },
+    {
+        name: "Heavy-Duty 4-Stroke Diesel Generator",
+        price: 48000000,
+        image: "industrial-heavy-duty-4-Stroke-diesel-generator-5.jpg.avif",
+        description: "Four-stroke diesel generator for heavy-duty applications."
+    },
+    {
+        name: "Low-Noise Electric Start Diesel Generator",
+        price: 8500000,
+        image: "ohv-low-noise-electric-starter-diesel-generator.jpg.avif",
+        description: "Diesel generator designed with low-noise operation in mind."
+    },
+    {
+        name: "6kW Three-Phase Diesel Generator",
+        price: 7500000,
+        image: "open-type-6kw-three-phase-diesel-generator-6.jpg.avif",
+        description: "Open-type three-phase generator for suitable equipment."
+    },
+    {
+        name: "Remote Start Three-Phase Gasoline Generator",
+        price: 6800000,
+        image: "remote-start-three-phase-gasoline-generator-2.jpg.avif",
+        description: "Gasoline generator with remote-start and three-phase design."
+    },
+    {
+        name: "6.5kW Soundproof Diesel Generator",
+        price: 18000000,
+        image: "soundproof-6.5kw-air-cooled-diesel-generator-768x768.jpg",
+        description: "Soundproof, air-cooled diesel generator listed at 6.5kW."
+    },
+    {
+        name: "5.5kW Portable Diesel Generator",
+        price: 5000000,
+        image: "superior-quality-5.5kw-portable-diesel-generators-2.jpg.avif",
+        description: "Portable diesel generator for backup power needs."
+    },
+    {
+        name: "15kW Silent Yangdong Diesel Generator",
+        price: 28000000,
+        image: "yangdong-diesel-power-silent-electric-15kw-genset-768x768.jpg",
+        description: "Silent-style diesel genset listed at 15kW."
+    }
+];
+
+const quantities = {};
+const grid = document.getElementById("product-grid");
+
+function rupiah(value) {
+    return new Intl.NumberFormat("id-ID", {
+        style: "currency",
+        currency: "IDR",
+        maximumFractionDigits: 0
+    }).format(value);
+}
+
+function displayProducts() {
+    grid.innerHTML = products.map((p, i) => {
+        quantities[i] = quantities[i] || 1;
+
+        return `
+        <article class="product-card">
+            <div class="product-image">
+                <img
+                    src="images/${p.image}"
+                    alt="${p.name}"
+                    loading="lazy"
+                    onerror="this.onerror=null;this.src='images/equipment.jpg';this.style.objectFit='cover'">
+            </div>
+
+            <div class="product-info">
+                <span class="category-tag">Generators</span>
+                <h3>${p.name}</h3>
+                <p class="description">${p.description}</p>
+
+                <div class="price">${rupiah(p.price)}</div>
+                <div class="price-note">
+                    Estimated price for school project
+                </div>
+
+                <div class="quantity-row">
+                    <span>Quantity</span>
+
+                    <div class="qty-control">
+                        <button type="button"
+                            aria-label="Decrease quantity"
+                            onclick="changeQuantity(${i}, -1)">−</button>
+
+                        <input id="qty-${i}"
+                            value="${quantities[i]}"
+                            readonly
+                            aria-label="Quantity">
+
+                        <button type="button"
+                            aria-label="Increase quantity"
+                            onclick="changeQuantity(${i}, 1)">+</button>
+                    </div>
+                </div>
+
+                <button class="add-btn"
+                    type="button"
+                    onclick="addToCart(${i})">
+                    ADD TO CART
+                </button>
+            </div>
+        </article>`;
+    }).join("");
+}
+
+function changeQuantity(index, change) {
+    quantities[index] = Math.max(
+        1,
+        (quantities[index] || 1) + change
+    );
+
+    document.getElementById(`qty-${index}`).value =
+        quantities[index];
+}
+
+function getCart() {
+    try {
+        return JSON.parse(
+            localStorage.getItem("indoIndustrialCart")
+        ) || [];
+    } catch (error) {
+        return [];
+    }
+}
+
+function saveCart(cart) {
+    localStorage.setItem(
+        "indoIndustrialCart",
+        JSON.stringify(cart)
+    );
+}
+
+function updateCartCount() {
+    const cart = getCart();
+
+    document.getElementById("cart-count").textContent =
+        cart.reduce(
+            (sum, item) => sum + (Number(item.quantity) || 0),
+            0
+        );
+}
+
+let notificationTimer;
+
+function showNotification(message) {
+    document.getElementById("notification-text").textContent =
+        message;
+
+    const box = document.getElementById("notification");
+    box.classList.add("show");
+
+    clearTimeout(notificationTimer);
+
+    notificationTimer = setTimeout(() => {
+        box.classList.remove("show");
+    }, 3200);
+}
+
+function addToCart(index) {
+    const product = products[index];
+    const cart = getCart();
+
+    const existing = cart.find(
+        item => item.name === product.name
+    );
+
+    if (existing) {
+        existing.quantity =
+            (Number(existing.quantity) || 0) + quantities[index];
+    } else {
+        cart.push({
+            name: product.name,
+            price: product.price,
+            image: "images/" + product.image,
+            category: "Generators",
+            quantity: quantities[index]
+        });
+    }
+
+    saveCart(cart);
+    updateCartCount();
+
+    showNotification(
+        `${product.name} (${quantities[index]} item) added to your cart.`
+    );
+}
+
+displayProducts();
+updateCartCount();
+</script>
+
+</body>
+</html>

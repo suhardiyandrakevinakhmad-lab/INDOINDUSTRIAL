@@ -1,0 +1,766 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Products | Indo Industrial</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --navy: #0b1d35;
+    --gold: #d5a63a;
+    --muted: #697586;
+    --border: #dfe4ea;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f6f8;
+    color: #182536;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* NAVBAR */
+
+.navbar {
+    background: var(--navy);
+    color: white;
+}
+
+.nav-container {
+    width: 90%;
+    max-width: 1200px;
+    min-height: 78px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo img {
+    width: 72px;
+    height: 72px;
+    object-fit: contain;
+}
+
+.logo-text strong {
+    display: block;
+    font-size: 18px;
+    letter-spacing: 2px;
+}
+
+.logo-text span {
+    display: block;
+    font-size: 9px;
+    color: #cbd5e1;
+    letter-spacing: 1.3px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: var(--gold);
+}
+
+.cart-link {
+    color: var(--gold) !important;
+}
+
+/* HERO BANNER */
+
+.hero {
+    background:
+        linear-gradient(
+            rgba(7, 22, 40, .78),
+            rgba(7, 22, 40, .84)
+        ),
+        url("images/foto pabrik 2.jpg");
+
+    background-size: cover;
+    background-position: center;
+    min-height: 310px;
+    padding: 80px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+.hero small {
+    color: var(--gold);
+    letter-spacing: 3px;
+    font-weight: bold;
+}
+
+.hero h1 {
+    font-size: 45px;
+    margin-top: 12px;
+}
+
+.hero p {
+    margin-top: 12px;
+    color: #e0e6ed;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* MAIN CONTAINER */
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 55px 0 65px;
+}
+
+.section-title {
+    margin-bottom: 25px;
+}
+
+.section-title h2 {
+    font-size: 28px;
+}
+
+.section-title p {
+    color: var(--muted);
+    margin-top: 8px;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+/* SEARCH */
+
+.search-box {
+    margin-bottom: 30px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 15px 17px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    font-size: 14px;
+    background: white;
+    outline: none;
+}
+
+.search-box input:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(213,166,58,.12);
+}
+
+/* CATEGORY GRID */
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
+}
+
+.category-card {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    transition: .25s;
+    min-width: 0;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 28px rgba(0,0,0,.10);
+}
+
+.category-image {
+    height: 195px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 18px;
+    background: white;
+    border-bottom: 1px solid #edf0f3;
+}
+
+.category-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.category-info {
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.category-info small {
+    color: #a77c17;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+}
+
+.category-info h3 {
+    font-size: 18px;
+    line-height: 1.45;
+    margin-top: 7px;
+}
+
+.category-info p {
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.7;
+    margin-top: 8px;
+}
+
+.view-category {
+    display: inline-block;
+    margin-top: auto;
+    padding-top: 18px;
+    font-size: 11px;
+    font-weight: bold;
+    color: #123b68;
+    letter-spacing: .7px;
+}
+
+.view-category:hover {
+    color: #a77c17;
+}
+
+.no-results {
+    display: none;
+    padding: 35px 15px;
+    text-align: center;
+    color: var(--muted);
+    background: white;
+    border: 1px solid var(--border);
+}
+
+/* CTA */
+
+.cta {
+    margin-top: 60px;
+    background: var(--navy);
+    color: white;
+    padding: 45px 20px;
+    text-align: center;
+}
+
+.cta h2 {
+    font-size: 25px;
+}
+
+.cta p {
+    margin-top: 10px;
+    color: #cbd5e1;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.cta a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 13px 25px;
+    background: var(--gold);
+    color: var(--navy);
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* FOOTER */
+
+footer {
+    background: #071629;
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+footer h3 {
+    letter-spacing: 2px;
+}
+
+footer p {
+    color: #aeb9c8;
+    font-size: 12px;
+    margin-top: 8px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+    .category-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    .nav-container {
+        flex-direction: column;
+        padding: 15px 0;
+        gap: 16px;
+    }
+
+    nav {
+        justify-content: center;
+        gap: 16px;
+    }
+
+    .hero {
+        min-height: 260px;
+        padding: 55px 18px;
+    }
+
+    .hero h1 {
+        font-size: 34px;
+    }
+
+    .category-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .category-image {
+        height: 220px;
+    }
+
+    .section-title h2 {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 420px) {
+    .logo img {
+        width: 58px;
+        height: 58px;
+    }
+
+    .logo-text strong {
+        font-size: 15px;
+    }
+
+    .logo-text span {
+        font-size: 8px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<header class="navbar">
+    <div class="nav-container">
+
+        <a href="index.html" class="logo">
+            <img
+                src="images/logo_baru-removebg-preview.png"
+                alt="Indo Industrial Logo"
+            >
+
+            <div class="logo-text">
+                <strong>INDO INDUSTRIAL</strong>
+                <span>INDUSTRIAL EQUIPMENT &amp; ENGINEERING</span>
+            </div>
+        </a>
+
+        <nav>
+            <a href="index.html">HOME</a>
+            <a href="products.html">PRODUCTS</a>
+            <a href="cart.html" class="cart-link">
+                🛒 CART <span id="cart-count">0</span>
+            </a>
+        </nav>
+
+    </div>
+</header>
+
+<!-- HERO BANNER -->
+
+<section class="hero">
+    <small>INDO INDUSTRIAL</small>
+    <h1>Our Products</h1>
+    <p>
+        Industrial equipment and engineering products<br>
+        for professional applications.
+    </p>
+</section>
+
+<!-- CATEGORIES -->
+
+<main class="container">
+
+    <div class="section-title">
+        <h2>Equipment Categories</h2>
+        <p>
+            Explore our equipment categories or search
+            for the products you need.
+        </p>
+    </div>
+
+    <div class="search-box">
+        <input
+            type="search"
+            id="category-search"
+            placeholder="Search categories, e.g. motors, pumps, welding..."
+            aria-label="Search equipment categories"
+        >
+    </div>
+
+    <div class="category-grid" id="category-grid">
+
+        <!-- 01 MOTORS -->
+        <a href="motors.html"
+           class="category-card"
+           data-search="motors electric motor industrial motor">
+
+            <div class="category-image">
+                <img
+                    src="images/Low Voltage Synchronous Motor.jpg"
+                    alt="Low Voltage Synchronous Motor"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="category-info">
+                <small>CATEGORY 01</small>
+                <h3>Motors</h3>
+                <p>
+                    Industrial motors for machinery,
+                    equipment and engineering applications.
+                </p>
+                <span class="view-category">VIEW PRODUCTS →</span>
+            </div>
+        </a>
+
+        <!-- 02 PUMPS -->
+        <a href="pumps.html"
+           class="category-card"
+           data-search="pumps water pump industrial pump ebara">
+
+            <div class="category-image">
+                <img
+                    src="images/ebara.png"
+                    alt="Industrial Pumps"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="category-info">
+                <small>CATEGORY 02</small>
+                <h3>Pumps</h3>
+                <p>
+                    Pump equipment for water transfer
+                    and industrial applications.
+                </p>
+                <span class="view-category">VIEW PRODUCTS →</span>
+            </div>
+        </a>
+
+        <!-- 03 GENERATORS -->
+        <a href="generators.html"
+           class="category-card"
+           data-search="generators generator power generation">
+
+            <div class="category-image">
+                <img
+                    src="images/air-cooled-remote-start-gasoline-generator-2.jpg.avif"
+                    alt="Air Cooled Remote Start Gasoline Generator"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="category-info">
+                <small>CATEGORY 03</small>
+                <h3>Generators</h3>
+                <p>
+                    Power generation equipment for
+                    industrial and backup power needs.
+                </p>
+                <span class="view-category">VIEW PRODUCTS →</span>
+            </div>
+        </a>
+
+        <!-- 04 ELECTRICAL -->
+        <a href="electrical.html"
+           class="category-card"
+           data-search="electrical equipment switchgear electrical cabinet substation">
+
+            <div class="category-image">
+                <img
+                    src="images/Low-Voltage-Switchgear-Cabinet.webp"
+                    alt="Electrical Equipment"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="category-info">
+                <small>CATEGORY 04</small>
+                <h3>Electrical Equipment</h3>
+                <p>
+                    Electrical equipment and switchgear
+                    for industrial installations.
+                </p>
+                <span class="view-category">VIEW PRODUCTS →</span>
+            </div>
+        </a>
+
+        <!-- 05 WELDING -->
+        <a href="welding.html"
+           class="category-card"
+           data-search="welding machine mig pulse aluminium welder">
+
+            <div class="category-image">
+                <img
+                    src="images/315A 250A 200A MIG Pulse Aluminium Welder Gas .jpeg"
+                    alt="Welding Machine"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="category-info">
+                <small>CATEGORY 05</small>
+                <h3>Welding Machine</h3>
+                <p>
+                    Welding machines and equipment
+                    for industrial and workshop applications.
+                </p>
+                <span class="view-category">VIEW PRODUCTS →</span>
+            </div>
+        </a>
+
+        <!-- 06 AIR COMPRESSOR -->
+        <a href="air-compressor.html"
+           class="category-card"
+           data-search="air compressor btali compressor">
+
+            <div class="category-image">
+                <img
+                    src="images/Btali BT 50T 2 HP Double Motor Oil Free Air Compressor 50L Heavy Duty.jpeg"
+                    alt="Air Compressor"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="category-info">
+                <small>CATEGORY 06</small>
+                <h3>Air Compressor</h3>
+                <p>
+                    Air compressors for workshops
+                    and engineering operations.
+                </p>
+                <span class="view-category">VIEW PRODUCTS →</span>
+            </div>
+        </a>
+
+        <!-- 07 GRINDING -->
+        <a href="grinding.html"
+           class="category-card"
+           data-search="grinding power tools angle grinder">
+
+            <div class="category-image">
+                <img
+                    src="images/ANGLE GRINDER 5IN RSEV 17-125 603829510.jpeg"
+                    alt="Grinding and Power Tools"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="category-info">
+                <small>CATEGORY 07</small>
+                <h3>Grinding / Power Tools</h3>
+                <p>
+                    Professional grinders and power tools
+                    for industrial applications.
+                </p>
+                <span class="view-category">VIEW PRODUCTS →</span>
+            </div>
+        </a>
+
+        <!-- 08 DRILLING -->
+        <a href="drilling.html"
+           class="category-card"
+           data-search="drilling equipment drill cordless drill">
+
+            <div class="category-image">
+                <img
+                    src="images/PRO GSB 18V-50.jpeg"
+                    alt="Drilling Equipment"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="category-info">
+                <small>CATEGORY 08</small>
+                <h3>Drilling Equipment</h3>
+                <p>
+                    Electric and cordless drilling equipment
+                    for workshop and industrial use.
+                </p>
+                <span class="view-category">VIEW PRODUCTS →</span>
+            </div>
+        </a>
+
+        <!-- 09 HYDRAULIC -->
+        <a href="hydraulic.html"
+           class="category-card"
+           data-search="hydraulic equipment hydraulic jack bottle jack pump">
+
+            <div class="category-image">
+                <img
+                    src="images/HYDRAULIC BOTTLE JACK 30 TON ERLJB30.jpeg"
+                    alt="Hydraulic Equipment"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="category-info">
+                <small>CATEGORY 09</small>
+                <h3>Hydraulic Equipment</h3>
+                <p>
+                    Hydraulic jacks and equipment
+                    for heavy-duty lifting applications.
+                </p>
+                <span class="view-category">VIEW PRODUCTS →</span>
+            </div>
+        </a>
+
+        <!-- 10 SAFETY -->
+        <a href="safety.html"
+           class="category-card"
+           data-search="safety equipment safety shoes glasses helmet protection">
+
+            <div class="category-image">
+                <img
+                    src="images/Safety Shoes Jogger Turbo.jpeg"
+                    alt="Safety Equipment"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="category-info">
+                <small>CATEGORY 10</small>
+                <h3>Safety Equipment</h3>
+                <p>
+                    Personal protective equipment for
+                    industrial and workshop environments.
+                </p>
+                <span class="view-category">VIEW PRODUCTS →</span>
+            </div>
+        </a>
+
+    </div>
+
+    <div class="no-results" id="no-results">
+        No categories found. Try another keyword.
+    </div>
+
+    <!-- CTA -->
+
+    <section class="cta">
+        <h2>Need Industrial Equipment?</h2>
+        <p>
+            Explore our product categories or contact
+            Indo Industrial for further information.
+        </p>
+        <a href="contact.html">CONTACT US</a>
+    </section>
+
+</main>
+
+<!-- FOOTER -->
+
+<footer>
+    <h3>INDO INDUSTRIAL</h3>
+    <p>Industrial Equipment &amp; Engineering Service</p>
+    <p>© 2026 Indo Industrial. All Rights Reserved.</p>
+</footer>
+
+<script>
+/* CATEGORY SEARCH */
+
+const searchInput = document.getElementById("category-search");
+const categoryCards = document.querySelectorAll(".category-card");
+const noResults = document.getElementById("no-results");
+
+searchInput.addEventListener("input", function () {
+    const keyword = this.value.toLowerCase().trim();
+    let visibleCount = 0;
+
+    categoryCards.forEach(function (card) {
+        const searchableText =
+            (card.innerText + " " + card.dataset.search).toLowerCase();
+
+        const matches = searchableText.includes(keyword);
+
+        card.style.display = matches ? "flex" : "none";
+
+        if (matches) {
+            visibleCount++;
+        }
+    });
+
+    noResults.style.display =
+        visibleCount === 0 ? "block" : "none";
+});
+
+/* CART COUNT */
+
+function updateCartCount() {
+    let cart = [];
+
+    try {
+        cart = JSON.parse(
+            localStorage.getItem("indoIndustrialCart")
+        ) || [];
+    } catch (error) {
+        cart = [];
+    }
+
+    const count = cart.reduce(function (total, item) {
+        return total + (Number(item.quantity) || 0);
+    }, 0);
+
+    document.getElementById("cart-count").textContent = count;
+}
+
+updateCartCount();
+</script>
+
+</body>
+</html>

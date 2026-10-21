@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Shopping Cart | Indo Industrial</title>
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f6f8;
+    color: #182536;
+}
+
+:root {
+    --navy: #0b1d35;
+    --gold: #d5a63a;
+    --muted: #697586;
+    --border: #dfe4ea;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* ================= NAVBAR ================= */
+
+.navbar {
+    background: var(--navy);
+    color: white;
+}
+
+.nav-container {
+    width: 90%;
+    max-width: 1200px;
+    min-height: 78px;
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+
+.logo img {
+    width: 72px;
+    height: 72px;
+    object-fit: contain;
+    background: transparent;
+    border-radius: 0;
+    flex-shrink: 0;
+
+}
+
+.logo-text strong {
+    display: block;
+    font-size: 18px;
+    letter-spacing: 2px;
+}
+
+.logo-text span {
+    display: block;
+    font-size: 9px;
+    color: #cbd5e1;
+    letter-spacing: 1px;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: var(--gold);
+}
+
+.cart-link {
+    color: var(--gold) !important;
+}
+
+
+/* ================= PAGE ================= */
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 60px 0;
+}
+
+.page-title {
+    margin-bottom: 35px;
+}
+
+.page-title small {
+    color: var(--gold);
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.page-title h1 {
+    font-size: 35px;
+    margin-top: 8px;
+}
+
+.page-title p {
+    color: var(--muted);
+    font-size: 13px;
+    margin-top: 8px;
+}
+
+
+/* ================= LAYOUT ================= */
+
+.cart-layout {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 30px;
+}
+
+
+/* ================= CART ITEMS ================= */
+
+.cart-items {
+    background: white;
+    border: 1px solid var(--border);
+}
+
+.cart-item {
+    display: grid;
+    grid-template-columns: 110px 1fr auto;
+
+    gap: 20px;
+
+    padding: 22px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.cart-item:last-child {
+    border-bottom: none;
+}
+
+.cart-image {
+    width: 110px;
+    height: 110px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: white;
+}
+
+.cart-image img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.cart-info h3 {
+    font-size: 15px;
+    line-height: 1.4;
+}
+
+.cart-category {
+    display: block;
+
+    color: var(--gold);
+
+    font-size: 9px;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 7px;
+}
+
+.cart-price {
+    color: #123b68;
+
+    font-weight: bold;
+
+    font-size: 15px;
+
+    margin-top: 10px;
+}
+
+
+/* ================= QUANTITY ================= */
+
+.quantity-box {
+    display: flex;
+    align-items: center;
+
+    margin-top: 15px;
+}
+
+.quantity-box button {
+    width: 30px;
+    height: 30px;
+
+    border: 1px solid #ccd3dc;
+
+    background: white;
+
+    cursor: pointer;
+
+    font-size: 15px;
+}
+
+.quantity-box span {
+    width: 38px;
+    height: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-top: 1px solid #ccd3dc;
+    border-bottom: 1px solid #ccd3dc;
+
+    font-size: 12px;
+}
+
+.remove-button {
+    margin-top: 12px;
+
+    border: none;
+
+    background: none;
+
+    color: #b42318;
+
+    font-size: 10px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.item-total {
+    font-size: 15px;
+
+    font-weight: bold;
+
+    color: #123b68;
+
+    white-space: nowrap;
+}
+
+
+/* ================= SUMMARY ================= */
+
+.summary {
+    background: white;
+
+    border: 1px solid var(--border);
+
+    padding: 25px;
+
+    height: fit-content;
+
+    position: sticky;
+
+    top: 20px;
+}
+
+.summary h2 {
+    font-size: 20px;
+
+    margin-bottom: 20px;
+}
+
+.summary-row {
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-bottom: 14px;
+
+    font-size: 12px;
+}
+
+.summary-row span:first-child {
+    color: var(--muted);
+}
+
+.summary-divider {
+    height: 1px;
+
+    background: var(--border);
+
+    margin: 20px 0;
+}
+
+.summary-total {
+    display: flex;
+
+    justify-content: space-between;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    color: #123b68;
+}
+
+.checkout-button {
+    display: block;
+
+    width: 100%;
+
+    margin-top: 25px;
+
+    padding: 15px;
+
+    border: none;
+
+    background: var(--navy);
+
+    color: white;
+
+    text-align: center;
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+}
+
+.checkout-button:hover {
+    background: #16375e;
+}
+
+
+/* ================= EMPTY CART ================= */
+
+.empty-cart {
+    background: white;
+
+    border: 1px solid var(--border);
+
+    padding: 70px 30px;
+
+    text-align: center;
+}
+
+.empty-cart h2 {
+    font-size: 25px;
+}
+
+.empty-cart p {
+    color: var(--muted);
+
+    font-size: 13px;
+
+    margin-top: 10px;
+}
+
+.shop-button {
+    display: inline-block;
+
+    margin-top: 22px;
+
+    padding: 13px 25px;
+
+    background: var(--navy);
+
+    color: white;
+
+    font-size: 11px;
+
+    font-weight: bold;
+}
+
+
+/* ================= FOOTER ================= */
+
+footer {
+    background: var(--navy);
+
+    color: white;
+
+    text-align: center;
+
+    padding: 45px 20px;
+
+    margin-top: 50px;
+}
+
+footer h3 {
+    letter-spacing: 2px;
+}
+
+footer p {
+    color: #aeb9c8;
+
+    font-size: 12px;
+
+    margin-top: 7px;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 850px) {
+
+    .cart-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .summary {
+        position: static;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .nav-container {
+        flex-direction: column;
+
+        padding: 15px 0;
+
+        gap: 15px;
+    }
+
+    .cart-item {
+        grid-template-columns: 80px 1fr;
+    }
+
+    .cart-image {
+        width: 80px;
+        height: 80px;
+    }
+
+    .item-total {
+        grid-column: 2;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="navbar">
+
+    <div class="nav-container">
+
+        <a href="index.html" class="logo">
+
+            <img
+                src="images/logo_baru-removebg-preview.png"
+                alt="Indo Industrial"
+            >
+
+            <div class="logo-text">
+
+                <strong>
+                    INDO INDUSTRIAL
+                </strong>
+
+                <span>
+                    INDUSTRIAL EQUIPMENT & ENGINEERING
+                </span>
+
+            </div>
+
+        </a>
+
+
+        <nav>
+
+            <a href="index.html">
+                HOME
+            </a>
+
+            <a href="products.html">
+                PRODUCTS
+            </a>
+
+            <a href="cart.html" class="cart-link">
+                🛒 CART
+                <span id="cart-count">0</span>
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+
+<!-- ================= MAIN ================= -->
+
+<main class="container">
+
+
+    <div class="page-title">
+
+        <small>
+            INDO INDUSTRIAL
+        </small>
+
+        <h1>
+            Shopping Cart
+        </h1>
+
+        <p>
+            Review your selected equipment before proceeding to checkout.
+        </p>
+
+    </div>
+
+
+    <div id="cart-container"></div>
+
+
+</main>
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <h3>
+        INDO INDUSTRIAL
+    </h3>
+
+    <p>
+        Industrial Equipment & Engineering Service
+    </p>
+
+    <p>
+        © 2026 Indo Industrial. All Rights Reserved.
+    </p>
+
+</footer>
+
+
+
+<script>
+
+/* =====================================================
+   CART DATA
+===================================================== */
+
+let cart =
+    JSON.parse(
+        localStorage.getItem(
+            "indoIndustrialCart"
+        )
+    ) || [];
+
+
+/* =====================================================
+   RUPIAH FORMAT
+===================================================== */
+
+function formatRupiah(number) {
+
+    return new Intl.NumberFormat(
+        "id-ID",
+        {
+            style: "currency",
+            currency: "IDR",
+            maximumFractionDigits: 0
+        }
+    ).format(number);
+
+}
+
+
+/* =====================================================
+   SAVE CART
+===================================================== */
+
+function saveCart() {
+
+    localStorage.setItem(
+        "indoIndustrialCart",
+        JSON.stringify(cart)
+    );
+
+}
+
+
+/* =====================================================
+   DISPLAY CART
+===================================================== */
+
+function displayCart() {
+
+    const container =
+        document.getElementById(
+            "cart-container"
+        );
+
+
+    if (cart.length === 0) {
+
+        container.innerHTML = `
+
+            <div class="empty-cart">
+
+                <h2>
+                    Your Cart Is Empty
+                </h2>
+
+                <p>
+                    You haven't added any equipment yet.
+                </p>
+
+                <a
+                    href="products.html"
+                    class="shop-button"
+                >
+                    BROWSE PRODUCTS
+                </a>
+
+            </div>
+
+        `;
+
+        updateCartCount();
+
+        return;
+    }
+
+
+    let subtotal = 0;
+
+
+    let itemsHTML = "";
+
+
+    cart.forEach(
+        function(item, index) {
+
+            const total =
+                item.price *
+                item.quantity;
+
+
+            subtotal += total;
+
+
+            itemsHTML += `
+
+                <div class="cart-item">
+
+
+                    <div class="cart-image">
+
+                        <img
+                            src="${item.image}"
+                            alt="${item.name}"
+                            onerror="this.src='images/equipment.jpg'"
+                        >
+
+                    </div>
+
+
+                    <div class="cart-info">
+
+                        <span class="cart-category">
+
+                            ${item.category || "INDUSTRIAL EQUIPMENT"}
+
+                        </span>
+
+
+                        <h3>
+                            ${item.name}
+                        </h3>
+
+
+                        <div class="cart-price">
+
+                            ${formatRupiah(item.price)}
+
+                        </div>
+
+
+                        <div class="quantity-box">
+
+                            <button
+                                onclick="changeQuantity(${index}, -1)"
+                            >
+                                −
+                            </button>
+
+
+                            <span>
+                                ${item.quantity}
+                            </span>
+
+
+                            <button
+                                onclick="changeQuantity(${index}, 1)"
+                            >
+                                +
+                            </button>
+
+                        </div>
+
+
+                        <button
+                            class="remove-button"
+                            onclick="removeItem(${index})"
+                        >
+                            REMOVE ITEM
+                        </button>
+
+                    </div>
+
+
+                    <div class="item-total">
+
+                        ${formatRupiah(total)}
+
+                    </div>
+
+
+                </div>
+
+            `;
+
+        }
+    );
+
+
+    /* ================= TAX ================= */
+
+    /*
+        Indonesian VAT / PPN
+        Current example rate used by this
+        school-project checkout system:
+        11%
+    */
+
+    const taxRate = 0.11;
+
+    const tax =
+        subtotal *
+        taxRate;
+
+
+    const grandTotal =
+        subtotal +
+        tax;
+
+
+    container.innerHTML = `
+
+        <div class="cart-layout">
+
+
+            <div class="cart-items">
+
+                ${itemsHTML}
+
+            </div>
+
+
+            <aside class="summary">
+
+                <h2>
+                    Order Summary
+                </h2>
+
+
+                <div class="summary-row">
+
+                    <span>
+                        Subtotal
+                    </span>
+
+                    <strong>
+                        ${formatRupiah(subtotal)}
+                    </strong>
+
+                </div>
+
+
+                <div class="summary-row">
+
+                    <span>
+                        PPN (11%)
+                    </span>
+
+                    <strong>
+                        ${formatRupiah(tax)}
+                    </strong>
+
+                </div>
+
+
+                <div class="summary-divider"></div>
+
+
+                <div class="summary-total">
+
+                    <span>
+                        Total
+                    </span>
+
+                    <span>
+                        ${formatRupiah(grandTotal)}
+                    </span>
+
+                </div>
+
+
+                <a
+                    href="checkout.html"
+                    class="checkout-button"
+                >
+                    PROCEED TO CHECKOUT
+                </a>
+
+            </aside>
+
+
+        </div>
+
+    `;
+
+
+    updateCartCount();
+
+}
+
+
+/* =====================================================
+   CHANGE QUANTITY
+===================================================== */
+
+function changeQuantity(
+    index,
+    amount
+) {
+
+    cart[index].quantity += amount;
+
+
+    if (cart[index].quantity <= 0) {
+
+        cart.splice(index, 1);
+
+    }
+
+
+    saveCart();
+
+    displayCart();
+
+}
+
+
+/* =====================================================
+   REMOVE ITEM
+===================================================== */
+
+function removeItem(index) {
+
+    cart.splice(index, 1);
+
+    saveCart();
+
+    displayCart();
+
+}
+
+
+/* =====================================================
+   CART COUNT
+===================================================== */
+
+function updateCartCount() {
+
+    let count = 0;
+
+
+    cart.forEach(
+        function(item) {
+
+            count += item.quantity;
+
+        }
+    );
+
+
+    document.getElementById(
+        "cart-count"
+    ).textContent =
+        count;
+
+}
+
+
+/* =====================================================
+   START
+===================================================== */
+
+displayCart();
+
+</script>
+
+
+</body>
+</html>
